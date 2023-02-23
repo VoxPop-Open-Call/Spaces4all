@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 import { Text } from '@rneui/base';
+import { View } from 'react-native';
+import { color, dimensions } from '../global';
+
 const Title = styled(Text)`
-width: 109px;
-height: 32px;
 font-family: 'Roboto';
-font-style: normal;
 font-weight: 400;
 font-size: 24px;
 line-height: 32px;
-/* identical to box height, or 133% */
 text-align: center;
-color: #21005D;
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
+color: ${color.onPrimaryContainer};
 `
 
-export { Title }
+const SideMenuBackdrop = styled(View)`
+position: absolute;
+width: ${dimensions.width + 'px'};
+height: ${dimensions.height + 'px'};
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1;
+`
+
+
+
+export { Title, SideMenuBackdrop };
