@@ -10,24 +10,20 @@ export default function SideMenu(props) {
                 <Icon
                     name='close'
                     color={color.onBackground}
-                    size={32}
+                    size={40}
                     onPress={props.action}
                 />
                 <Title>Menu</Title>
             </Header>
 
             <ButtonGroup>
-                <ListItem containerStyle={{ backgroundColor: 'transparent', padding: 0, paddingBottom: 8 }}>
-                    <Icon name="inbox" type="material-community" color={color.onBackground} />
-                    <ListItem.Content>
-                        <ListItem.Title>Inbox</ListItem.Title>
-                    </ListItem.Content>
+                <ListItem containerStyle={{ backgroundColor: 'transparent', padding: 0, paddingBottom: 8 }} onPress={props.action}>
+                    <Icon name="settings" type="Feather" color={color.onBackground} />
+                    <ListItem.Title>Configurações</ListItem.Title>
                 </ListItem>
-                <ListItem containerStyle={{ backgroundColor: 'transparent', padding: 0, paddingBottom: 8 }}>
-                    <Icon name="inbox" type="material-community" color={color.onBackground} />
-                    <ListItem.Content>
-                        <ListItem.Title>Inbox</ListItem.Title>
-                    </ListItem.Content>
+                <ListItem containerStyle={{ backgroundColor: 'transparent', padding: 0, paddingBottom: 8 }} onPress={props.action}>
+                    <Icon name="feedback" type="MaterialIcons" color={color.onBackground} />
+                    <ListItem.Title>Feedback</ListItem.Title>
                 </ListItem>
             </ButtonGroup>
 

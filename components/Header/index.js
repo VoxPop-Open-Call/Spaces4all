@@ -37,7 +37,6 @@ export default function MainHeader(props) {
     const animStyle = {
         transform: [{ translateX: xVal }]
     };
-    // TODO: Set side menu as a new component
     return (
         <View >
             {(isActive || isAnimating) &&
@@ -56,7 +55,7 @@ export default function MainHeader(props) {
             <Header
                 backgroundColor={color.primaryContainer}
                 containerStyle={{ paddingTop: 16 }} //Status bar
-                leftComponent={<Icon name='menu' color={color.onPrimaryContainer} size={30} onPress={handleClick} style={{ paddingHorizontal: 16 }} />}
+                leftComponent={<Icon name='menu' color={color.onPrimaryContainer} size={40} onPress={handleClick} style={{ paddingHorizontal: 8, paddingVertical: 8 }} />}
                 centerComponent={< Title >{props.pageTitle}</Title >}
                 placement="left"
                 elevated

@@ -6,8 +6,8 @@ import { color, dimensions } from '../global';
 const Title = styled(Text)`
 font-family: 'Roboto';
 font-weight: 400;
-font-size: 24px;
-line-height: 32px;
+font-size: 28px;
+line-height: 50px;
 text-align: center;
 color: ${color.onPrimaryContainer};
 `
