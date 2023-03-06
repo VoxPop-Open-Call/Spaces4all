@@ -1,10 +1,10 @@
-import { data } from "./data";
+import { data } from "../../data";
 import { Container } from "./styledLocations";
 import { Card } from "../Card";
 
 
 
-export default function Locations() {
+export default function Locations(props) {
     return (
         <Container >
             {data.map((location) => (
@@ -17,6 +17,8 @@ export default function Locations() {
                     closingTime={location.header.closingTime}
                     key={location.id}
                     trackCount={Object.keys(location.tracks).length}
+                    location={location}
+                    navigation={props.navigation}
 
                 />
             ))}

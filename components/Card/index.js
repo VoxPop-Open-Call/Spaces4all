@@ -1,9 +1,9 @@
 import { Text, ActivityIndicator } from "react-native";
-import { Image, Icon } from '@rneui/themed';
+import { Image, Icon, Button } from '@rneui/themed';
 import { StyledCard, Title, CardBody, CardRow, CardInfo } from "./styledCard";
 
-const Card = ({ name, image, lat, lon, openingTime, closingTime, trackCount }) => (
-    <StyledCard>
+const Card = ({ name, image, lat, lon, openingTime, closingTime, trackCount, navigation, location }) => (
+    <StyledCard onPress={() => navigation.navigate('Location', location)}>
         <Image
             containerStyle={{
                 aspectRatio: 2,
@@ -28,8 +28,8 @@ const Card = ({ name, image, lat, lon, openingTime, closingTime, trackCount }) =
                     <Text>{openingTime === closingTime ? "Aberto 24 horas" : openingTime + " - " + closingTime}</Text>
                 </CardInfo>
             </CardRow>
-
         </CardBody>
+
     </StyledCard>
 );
 
