@@ -1,13 +1,12 @@
-import { Header, Icon, Text } from '@rneui/base';
+import { View, TouchableWithoutFeedback, Animated } from 'react-native';
+import { SideMenuBackdrop } from './styledMenuIcon';
 import React, { useState, useRef } from 'react';
-import { TouchableWithoutFeedback, View, Animated } from 'react-native';
-import { color, dimensions } from '../global';
-import { Title, SideMenuBackdrop } from './styledHeader.js';
 import SideMenu from '../SideMenu';
+import 'react-native-gesture-handler';
+import { Icon } from '@rneui/base';
+import { color, dimensions } from '../global';
 
-
-export default function MainHeader(props) {
-
+export default function SideMenuLogic() {
     const animationValue = useRef(new Animated.Value(0)).current;
     const [isActive, setIsActive] = useState(false); // Side menu open or closed
     const [isAnimating, setIsAnimating] = useState(false); // Menu animation is playing or not
@@ -29,17 +28,20 @@ export default function MainHeader(props) {
         setIsAnimating(true);
     }
 
-    const xVal = animationValue.interpolate({
-        inputRange: [0, 1],
-        outputRange: [-dimensions.width, 0],
-    });
-
     const animStyle = {
-        transform: [{ translateX: xVal }]
+        transform: [{
+            translateX: animationValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [-dimensions.width, 0],
+            })
+        }]
     };
+
     return (
-        <View >
+        <View>
+            <Icon name='menu' color={color.onPrimaryContainer} onPress={handleClick} size={24} style={{ paddingHorizontal: 8 }} />
             {(isActive || isAnimating) &&
+
                 <View>
                     <TouchableWithoutFeedback onPress={handleClick} disabled={isAnimating}>
                         <Animated.View style={{ opacity: animationValue, zIndex: 1 }}>
@@ -51,19 +53,7 @@ export default function MainHeader(props) {
                     </Animated.View>
                 </View>
             }
-
-            <Header
-                backgroundColor={color.primaryContainer}
-                containerStyle={{ paddingTop: 16 }} //Status bar
-                leftComponent={<Icon name='menu' color={color.onPrimaryContainer} size={40} onPress={handleClick} style={{ paddingHorizontal: 8, paddingVertical: 8 }} />}
-                centerComponent={< Title >{props.pageTitle}</Title >}
-                placement="left"
-                elevated
-            />
-
-        </View >
-    )
+        </View>
+    );
 }
-
-
 

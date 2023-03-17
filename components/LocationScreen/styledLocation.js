@@ -2,10 +2,9 @@ import { Text, View, Pressable } from 'react-native';
 import styled from 'styled-components';
 import { color } from '../global';
 
-const StyledCard = styled(Pressable)`
-    border-radius: 8px;
+const Card = styled(Pressable)`
     background: ${color.primaryContainer};
-    margin-bottom: 16px;
+    
     overflow: hidden;
     
 `;
@@ -19,7 +18,15 @@ font-size: 22px;
 line-height: 26px;
 color: ${color.onPrimaryContainer};
 `;
-
+const Label = styled(Text)`
+margin-bottom: 10px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 25px;
+color: ${color.onPrimaryContainer};
+`;
 const CardBody = styled(View)`
 display: flex;
 flex-direction: column;
@@ -38,4 +45,4 @@ display: flex;
 flex-direction: row;
 `;
 
-export { StyledCard, Title, CardBody, CardRow, CardInfo }
+export { Card, Title, Label, CardBody, CardRow, CardInfo }
