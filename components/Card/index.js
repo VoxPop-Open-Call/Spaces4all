@@ -1,6 +1,7 @@
-import { Text, ActivityIndicator } from "react-native";
-import { Image, Icon, Button } from '@rneui/themed';
-import { StyledCard, Title, CardBody, CardRow, CardInfo } from "./styledCard";
+import { ActivityIndicator } from "react-native";
+import { Image, Icon } from '@rneui/themed';
+import { StyledCard, Title, CardBody, CardRow, CardInfo, Info } from "./styledCard";
+import { color } from "../../global";
 
 const Card = ({ name, image, lat, lon, openingTime, closingTime, trackCount, navigation, location }) => (
     <StyledCard onPress={() => navigation.navigate('Location', location)}>
@@ -16,16 +17,17 @@ const Card = ({ name, image, lat, lon, openingTime, closingTime, trackCount, nav
             <Title>{name}</Title>
 
             <CardRow>
-                <Icon type="material" name="location-pin" style={{ marginRight: 3 }} /><Text>{lat + " " + lon}</Text>
+                <Icon type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                <Info>{lat + " " + lon}</Info>
             </CardRow>
             <CardRow>
                 <CardInfo>
-                    <Icon type="material" name="flag" style={{ marginRight: 3 }} />
-                    <Text>{trackCount}</Text>
+                    <Icon type="material" name="flag" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                    <Info>{trackCount}</Info>
                 </CardInfo>
                 <CardInfo>
-                    <Icon type="material" name="schedule" style={{ marginRight: 3 }} />
-                    <Text>{openingTime === closingTime ? "Aberto 24 horas" : openingTime + " - " + closingTime}</Text>
+                    <Icon type="material" name="schedule" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                    <Info>{openingTime === closingTime ? "Aberto 24 horas" : openingTime + " - " + closingTime}</Info>
                 </CardInfo>
             </CardRow>
         </CardBody>
