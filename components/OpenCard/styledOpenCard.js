@@ -2,11 +2,9 @@ import { Text, View, Pressable } from 'react-native';
 import styled from 'styled-components';
 import { color } from '../../global';
 
-const StyledCard = styled(Pressable)`
+const Card = styled(Pressable)`
     background: ${color.primaryContainer};
-    overflow: hidden;
-    border-radius:8px;
-    margin-bottom:16px;
+    overflow: hidden;    
 `;
 
 const Title = styled(Text)`
@@ -45,4 +43,4 @@ const CardInfo = styled(View)`
     align-items: center;
 `;
 
-export { StyledCard, Title, CardBody, CardRow, CardInfo, Info }
+export { Card, Title, Info, CardBody, CardRow, CardInfo };
