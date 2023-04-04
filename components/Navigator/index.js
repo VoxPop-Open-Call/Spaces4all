@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LocationScreen from "../LocationScreen";
-import { color } from '../global';
+import { color } from '../../global';
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
 import { View } from 'react-native';
 import { Icon, Text } from '@rneui/base/dist';

@@ -7,15 +7,15 @@ import { Card } from "../Card";
 export default function Locations(props) {
     return (
         <Container >
-            {data.map((location) => (
+            {data.map((location, i) => (
                 <Card
+                    key={i}
                     name={location.header.name}
                     image={location.header.image}
                     lat={location.header.lat}
                     lon={location.header.lon}
                     openingTime={location.header.openingTime}
                     closingTime={location.header.closingTime}
-                    key={location.id}
                     trackCount={Object.keys(location.tracks).length}
                     location={location}
                     navigation={props.navigation}

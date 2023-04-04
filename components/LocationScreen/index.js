@@ -27,12 +27,12 @@ export default function LocationScreen({ navigation, route }) {
                 onPress={() => { setExpanded(!expanded); }}
             >
                 <ListItem containerStyle={{ backgroundColor: color.primaryContainer, flexDirection: 'column' }}>
-                    {body.map((content) =>
-                        <ListItem.Content key={content.title}>
+                    {body.map((content, i) =>
+                        <ListItem.Content key={i}>
                             <DescriptionTitle>{content.title}</DescriptionTitle>
                             <DescriptionBody>
-                                {content.data.map((dataContent) =>
-                                    <DescriptionBodyItem>{dataContent}</DescriptionBodyItem>
+                                {content.data.map((dataContent, k) =>
+                                    <DescriptionBodyItem key={k}>{dataContent}</DescriptionBodyItem>
                                 )}
                             </DescriptionBody>
                         </ListItem.Content>

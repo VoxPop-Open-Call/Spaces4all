@@ -4,8 +4,8 @@ import { color } from '../../global'
 export default function TrackList(props) {
     return (
         <Container>
-            {props.tracks.map((track) =>
-                <Item key={track.id}>
+            {props.tracks.map((track, i) =>
+                <Item key={i}>
                     <Body>
                         <Title>{track.name}</Title>
                         <InfoRow>

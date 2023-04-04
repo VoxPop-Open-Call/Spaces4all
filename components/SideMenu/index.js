@@ -1,6 +1,6 @@
 import { Background, Container, Header, ButtonGroup, Footer, Title } from './styledSideMenu';
 import { Icon, ListItem } from '@rneui/themed';
-import { color } from '../global';
+import { color } from '../../global';
 import { DrawerContent, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
 const SideMenu = (props) => {
