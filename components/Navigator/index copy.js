@@ -9,7 +9,6 @@ import { View } from 'react-native';
 import { Icon, Text } from '@rneui/base/dist';
 import SideMenu from '../SideMenu';
 import HomeScreen from '../HomeScreen';
-import TrackScreen from '../TrackScreen';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -36,6 +35,7 @@ function SideNavigator() {
                 (props) =>
                     <SideMenu {...props} />
             }
+
         >
             <Drawer.Screen
                 name="Home"
@@ -89,13 +89,6 @@ function StackNavigator() {
                     component={LocationScreen}
                     options={{
                         title: "Local"
-                    }}
-                />
-                <Stack.Screen
-                    name="Track"
-                    component={TrackScreen}
-                    options={{
-                        title: "Percurso"
                     }}
                 />
 

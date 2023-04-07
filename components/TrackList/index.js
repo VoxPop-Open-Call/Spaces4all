@@ -19,9 +19,7 @@ export default function TrackList(props) {
                             </Info>
                         </InfoRow>
                     </Body>
-
-
-                    <PlayButton>
+                    <PlayButton onPress={() => props.navigation.navigate('Track', track)}>
                         <Icon type="antdesign" name="caretright" color={color.onPrimary} size={18}></Icon>
                     </PlayButton>
                 </Item>

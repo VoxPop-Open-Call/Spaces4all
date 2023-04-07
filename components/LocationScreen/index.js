@@ -10,13 +10,13 @@ import OpenCard from '../OpenCard';
 export default function LocationScreen({ navigation, route }) {
     const [expanded, setExpanded] = useState(false);
 
-    const header = route.params.header
-    const body = route.params.body
-    const tracks = route.params.tracks
+    const header = route.params.location.header
+    const body = route.params.location.body
+    const tracks = route.params.location.tracks
 
     return (
         <ScrollView style={{ backgroundColor: "#D9CBEF" }}>
-            <OpenCard header={header} tracksLength={Object.keys(tracks).length} />
+            <OpenCard header={header} userLocation={route.params.userLocation} tracksLength={Object.keys(tracks).length} />
             <ListItem.Accordion
                 isExpanded={expanded} topDivider containerStyle={{ backgroundColor: color.primaryContainer }}
                 content={
@@ -39,7 +39,7 @@ export default function LocationScreen({ navigation, route }) {
                     )}
                 </ListItem>
             </ListItem.Accordion>
-            <TrackList tracks={tracks} />
+            <TrackList tracks={tracks} navigation={navigation} />
         </ScrollView>
     );
 }
