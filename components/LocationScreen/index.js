@@ -1,11 +1,11 @@
 import { ListItem } from '@rneui/themed';
-import { useState } from 'react';
+import { useState, useCallback, useEffect, useContext } from 'react';
 import { ScrollView } from 'react-native';
 import { Label, DescriptionTitle, DescriptionBody, DescriptionBodyItem } from './styledLocation';
 import { color } from '../../global';
 import TrackList from '../TrackList';
 import OpenCard from '../OpenCard';
-
+import LocationContext from '../LocationContext'
 
 export default function LocationScreen({ navigation, route }) {
     const [expanded, setExpanded] = useState(false);
@@ -14,9 +14,29 @@ export default function LocationScreen({ navigation, route }) {
     const body = route.params.location.body
     const tracks = route.params.location.tracks
 
+    //Refresh
+    const [refreshing, setRefreshing] = useState(false);
+    const onRefresh = useCallback(() => {
+        setRefreshing(true);
+        setTimeout(() => {
+            setRefreshing(false);
+        }, 1000);
+    }, []);
+
+    //Location
+
+    const locationContext = useContext(LocationContext);
+
+    useEffect(() => {
+        locationContext.getLocation()
+        if (locationContext.errorMsg !== null) {
+            navigation.goBack()
+        }
+    }, [refreshing]);
+
     return (
         <ScrollView style={{ backgroundColor: "#D9CBEF" }}>
-            <OpenCard header={header} userLocation={route.params.userLocation} tracksLength={Object.keys(tracks).length} />
+            <OpenCard header={header} userLocation={locationContext.userLocation} tracksLength={Object.keys(tracks).length} />
             <ListItem.Accordion
                 isExpanded={expanded} topDivider containerStyle={{ backgroundColor: color.primaryContainer }}
                 content={

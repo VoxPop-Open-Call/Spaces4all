@@ -10,7 +10,7 @@ const Card = ({ name, image, lat, lon, openingTime, closingTime, trackCount, nav
 
 
     return (
-        <StyledCard onPress={() => navigation.navigate('Location', { location: location, userLocation: userLocation })}>
+        <StyledCard onPress={() => navigation.navigate('Location', { location: location })}>
             <Image
                 containerStyle={{
                     aspectRatio: 2,

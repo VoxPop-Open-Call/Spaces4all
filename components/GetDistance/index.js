@@ -1,12 +1,13 @@
 import { REACT_APP_API_KEY } from '@env';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Text } from 'react-native';
+import { Text, ActivityIndicator } from 'react-native';
+import { color } from '../../global';
 
 const GetDistance = (props) => {
 
     if (props.userLocation === null || props.userLocation === undefined) {
-        return '...'
+        return (<ActivityIndicator color={color.primary} />);
     }
     const userLat = props.userLocation.coords.latitude
     const userLon = props.userLocation.coords.longitude
@@ -31,7 +32,7 @@ const GetDistance = (props) => {
 
     }, []);
     if (state === 'error' || !response.data || state === 'loading') {
-        return (<Text>{'...'}</Text>);
+        return (<ActivityIndicator size="large" color="#00ff00" />);
     }
 
     return (<Text>{response.data.rows[0].elements[0].distance.text + ' de distancia'}</Text>);

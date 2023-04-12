@@ -43,7 +43,7 @@ export const data = [
                 duration: "1h",
                 checkpoints: [
                     {
-                        name: "Início",
+                        title: "Início",
                         lat: 38.728521878830115,
                         lon: -9.152677437697626,
                         description: "Lorem ipsum"
@@ -55,7 +55,7 @@ export const data = [
                 duration: "1h 35min",
                 checkpoints: [
                     {
-                        name: "Início",
+                        title: "Início",
                         lat: 38.728521878830115,
                         lon: -9.152677437697626,
                         description: "Lorem ipsum"
@@ -67,7 +67,7 @@ export const data = [
                 duration: "45 min",
                 checkpoints: [
                     {
-                        name: "Início",
+                        title: "Início",
                         lat: 38.728521878830115,
                         lon: -9.152677437697626,
                         description: "Lorem ipsum"
@@ -120,7 +120,7 @@ export const data = [
                 duration: "1h",
                 checkpoints: [
                     {
-                        name: "Início",
+                        title: "Início",
                         lat: 38.728521878830115,
                         lon: -9.152677437697626,
                         description: "Lorem ipsum"
@@ -132,7 +132,7 @@ export const data = [
                 duration: "1h 35min",
                 checkpoints: [
                     {
-                        name: "Início",
+                        title: "Início",
                         lat: 38.728521878830115,
                         lon: -9.152677437697626,
                         description: "Lorem ipsum"
@@ -144,7 +144,7 @@ export const data = [
                 duration: "45 min",
                 checkpoints: [
                     {
-                        name: "Início",
+                        title: "Início",
                         lat: 38.728521878830115,
                         lon: -9.152677437697626,
                         description: "Lorem ipsum"
