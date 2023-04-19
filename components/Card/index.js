@@ -5,8 +5,7 @@ import { color } from "../../global";
 import { GetDistance } from '../GetDistance';
 
 
-const Card = ({ name, image, latitude, longitude, openingTime, closingTime, trackCount, navigation, location, userLocation }) => {
-
+const Card = ({ name, image, latitude, longitude, openingTime, closingTime, trackCount, navigation, location }) => {
 
 
     return (
@@ -25,7 +24,7 @@ const Card = ({ name, image, latitude, longitude, openingTime, closingTime, trac
 
                 <CardRow>
                     <Icon type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                    <Info><GetDistance userLocation={userLocation} latitude={latitude} longitude={longitude} /></Info>
+                    <Info><GetDistance latitude={latitude} longitude={longitude} /></Info>
                 </CardRow>
                 <CardRow>
                     <CardInfo>
