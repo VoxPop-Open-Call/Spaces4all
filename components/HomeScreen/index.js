@@ -36,8 +36,8 @@ export default function HomeScreen({ navigation, route }) {
                     key={i}
                     name={location.header.name}
                     image={location.header.image}
-                    lat={location.header.lat}
-                    lon={location.header.lon}
+                    latitude={location.header.latitude}
+                    longitude={location.header.longitude}
                     openingTime={location.header.openingTime}
                     closingTime={location.header.closingTime}
                     trackCount={Object.keys(location.tracks).length}

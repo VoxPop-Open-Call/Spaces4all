@@ -9,7 +9,6 @@ import { Alert, Linking } from 'react-native';
 
 
 
-
 export default function App() {
 
   const [userLocation, setUserLocation] = useState(null);

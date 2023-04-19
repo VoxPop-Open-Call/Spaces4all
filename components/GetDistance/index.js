@@ -9,9 +9,8 @@ const GetDistance = (props) => {
     if (props.userLocation === null || props.userLocation === undefined) {
         return (<ActivityIndicator color={color.primary} />);
     }
-    const userLat = props.userLocation.coords.latitude
-    const userLon = props.userLocation.coords.longitude
-    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${userLat},${userLon}&destinations=${props.lat},${props.lon}&key=${REACT_APP_API_KEY}`;
+    const coords = props.userLocation.coords
+    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${coords.latitude},${coords.longitude}&destinations=${props.latitude},${props.longitude}&key=${REACT_APP_API_KEY}`;
 
     const [error, setError] = useState(false);
     const [response, setResponse] = useState('');

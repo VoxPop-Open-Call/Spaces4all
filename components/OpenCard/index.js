@@ -22,7 +22,7 @@ export default function OpenCard(props) {
 
                 <CardRow>
                     <Icon type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                    <Info><GetDistance userLocation={props.userLocation} lat={header.lat} lon={header.lon} /></Info>
+                    <Info><GetDistance userLocation={props.userLocation} latitude={header.latitude} longitude={header.longitude} /></Info>
                 </CardRow>
                 <CardRow>
                     <CardInfo>

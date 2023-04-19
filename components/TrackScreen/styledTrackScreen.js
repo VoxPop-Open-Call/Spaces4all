@@ -1,6 +1,7 @@
-import { View } from "react-native";
+import { View, Text, StatusBar } from "react-native";
 import styled from "styled-components";
 import MapView, { Marker } from 'react-native-maps';
+import { color } from "../../global";
 
 
 const Container = styled(View)`
@@ -11,6 +12,28 @@ const Map = styled(MapView)`
     height: 100%;
 `
 const Checkpoint = styled(Marker)`
+`
+const Header = styled(View)`
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 0px 16px;
+    background-color: ${color.primaryContainer};
+    align-items: center;
+    padding-top: ${StatusBar.currentHeight + "px"};
+    padding-bottom: 8px;
+`
+const Distance = styled(Text)`
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 3;
+    color: ${color.primary};
+    text-align: center;
+    line-height: 29px;
+    margin: auto;
 
 `
-export { Container, Map, Checkpoint }
+export { Container, Map, Checkpoint, Header, Distance }

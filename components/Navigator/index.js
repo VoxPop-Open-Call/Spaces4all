@@ -95,7 +95,8 @@ function StackNavigator() {
                     name="Track"
                     component={TrackScreen}
                     options={{
-                        title: "Percurso"
+                        title: "Percurso",
+                        headerShown: false
                     }}
                 />
 
