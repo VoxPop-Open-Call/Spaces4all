@@ -110,7 +110,7 @@ export default function TrackScreen({ navigation, route }) {
                 loadingEnabled={true}
                 onUserLocationChange={
                     (newLocation) => {
-                        if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 5) {
+                        if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 15) {
                             // Avoiding constant location updates with a movement distance threshold 
                             setUserLocation(newLocation.nativeEvent.coordinate);
                         }

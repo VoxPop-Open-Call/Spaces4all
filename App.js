@@ -2,11 +2,11 @@ import { ThemeProvider } from '@rneui/themed';
 import { StackNavigator } from './components/Navigator'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import LocationContext from './components/LocationContext'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as Location from 'expo-location';
 import { Alert, Linking } from 'react-native';
-
-
+import { REACT_APP_API_KEY } from '@env';
+import axios from 'axios';
 
 
 export default function App() {
@@ -15,6 +15,7 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState(null);
 
   async function getLocation() {
+
     let { status } = await Location.requestBackgroundPermissionsAsync();
     if (status !== 'granted') {
       setErrorMsg('Permission to access location was denied');
@@ -36,15 +37,33 @@ export default function App() {
     let location = await Location.getCurrentPositionAsync({});
     setUserLocation(location);
     setErrorMsg(null);
+    return;
   };
+
+  const [userDistance, setUserDistance] = useState(null);
+
+  async function getDistance(latitude, longitude) {
+    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${userLocation.coords.latitude},${userLocation.coords.longitude}&destinations=${latitude},${longitude}&key=${REACT_APP_API_KEY}`;
+    axios
+      .get(url)
+      .then(r => {
+        setUserDistance(r.data.rows[0].elements[0].distance);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return (userDistance);
+  }
 
   return (
     <SafeAreaProvider>
       <LocationContext.Provider value={{
         getLocation: getLocation,
         userLocation: userLocation,
+        getDistance: getDistance,
+        userDistance: userDistance,
         errorMsg: errorMsg,
-      }} >
+      }}>
         <ThemeProvider>
           <StackNavigator />
         </ThemeProvider>

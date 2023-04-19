@@ -1,40 +1,38 @@
-import { REACT_APP_API_KEY } from '@env';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useContext, useCallback } from 'react';
 import { Text, ActivityIndicator } from 'react-native';
 import { color } from '../../global';
+import LocationContext from '../LocationContext';
+import { useState } from 'react';
+import axios from 'axios';
+import { REACT_APP_API_KEY } from '@env';
 
 const GetDistance = (props) => {
 
-    if (props.userLocation === null || props.userLocation === undefined) {
-        return (<ActivityIndicator color={color.primary} />);
-    }
-    const coords = props.userLocation.coords
-    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${coords.latitude},${coords.longitude}&destinations=${props.latitude},${props.longitude}&key=${REACT_APP_API_KEY}`;
-
-    const [error, setError] = useState(false);
-    const [response, setResponse] = useState('');
-    const [state, setState] = useState('');
+    const locationContext = useContext(LocationContext);
+    const [userDistance, setUserDistance] = useState(null);
+    const [refreshing, setRefreshing] = useState(null);
 
     useEffect(() => {
-        setState('loading');
-        axios
-            .get(url)
-            .then(r => {
-                setState('success');
-                setResponse(r);
-            })
-            .catch(err => {
-                setState('error');
-                setError(err);
-            });
+        locationContext.getLocation()
+        if (locationContext.userLocation === null) {
+            setRefreshing(true);
+            setTimeout(() => {
+                setRefreshing(false);
+            }, 1000);
+        } else {
+            const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${locationContext.userLocation.coords.latitude},${locationContext.userLocation.coords.longitude}&destinations=${props.latitude},${props.longitude}&key=${REACT_APP_API_KEY}`;
+            axios
+                .get(url)
+                .then(r => {
+                    setUserDistance(r.data.rows[0].elements[0].distance);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
 
-    }, []);
-    if (state === 'error' || !response.data || state === 'loading') {
-        return (<ActivityIndicator size="large" color="#00ff00" />);
-    }
-
-    return (<Text>{response.data.rows[0].elements[0].distance.text + ' de distancia'}</Text>);
+    }, [refreshing]);
+    return (<Text>{userDistance === null || userDistance === undefined ? <ActivityIndicator color={color.primary} /> : userDistance.text + " de distancia."}</Text>);
 }
 
 export { GetDistance };

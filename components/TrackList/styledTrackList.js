@@ -39,7 +39,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-background-color:${color.primary};
+background-color:${(props) => props.disabled ? '#999999' : color.primary};
 border-radius: 64px;
 height: 47px;
 width: 47px;

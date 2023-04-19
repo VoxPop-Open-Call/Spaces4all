@@ -2,7 +2,7 @@ import { color } from "../../global";
 import { Card, Title, Info, CardBody, CardRow, CardInfo } from "./styledOpenCard";
 import { Image, Icon } from '@rneui/themed';
 import { ActivityIndicator } from "react-native";
-import { GetDistance } from "../GetDistance";
+
 
 export default function OpenCard(props) {
     const header = props.header;
@@ -22,7 +22,7 @@ export default function OpenCard(props) {
 
                 <CardRow>
                     <Icon type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                    <Info><GetDistance userLocation={props.userLocation} latitude={header.latitude} longitude={header.longitude} /></Info>
+                    <Info>{props.userDistance === null || props.userDistance === undefined ? <ActivityIndicator color={color.primary} /> : props.userDistance.text + " de distancia."}</Info>
                 </CardRow>
                 <CardRow>
                     <CardInfo>

@@ -2,6 +2,7 @@ import { Container, Item, PlayButton, Body, InfoRow, Info, Title, Label } from '
 import { Icon } from '@rneui/base'
 import { color } from '../../global'
 export default function TrackList(props) {
+
     return (
         <Container>
             {props.tracks.map((track, i) =>
@@ -19,7 +20,7 @@ export default function TrackList(props) {
                             </Info>
                         </InfoRow>
                     </Body>
-                    <PlayButton onPress={() => props.navigation.navigate('Track', track)}>
+                    <PlayButton onPress={() => props.navigation.navigate('Track', track)} disabled={props.userDistance.value > 1000}>
                         <Icon type="antdesign" name="caretright" color={color.onPrimary} size={18}></Icon>
                     </PlayButton>
                 </Item>
@@ -27,3 +28,4 @@ export default function TrackList(props) {
         </Container>
     )
 }
+

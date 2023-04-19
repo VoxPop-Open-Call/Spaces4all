@@ -28,7 +28,8 @@ export default function LocationScreen({ navigation, route }) {
     const locationContext = useContext(LocationContext);
 
     useEffect(() => {
-        locationContext.getLocation()
+        locationContext.getLocation();
+        locationContext.getDistance(header.latitude, header.longitude);
         if (locationContext.errorMsg !== null) {
             navigation.goBack()
         }
@@ -36,7 +37,13 @@ export default function LocationScreen({ navigation, route }) {
 
     return (
         <ScrollView style={{ backgroundColor: "#D9CBEF" }}>
-            <OpenCard header={header} userLocation={locationContext.userLocation} tracksLength={Object.keys(tracks).length} />
+            {
+                // header
+            }
+            <OpenCard header={header} userDistance={locationContext.userDistance} tracksLength={Object.keys(tracks).length} />
+            {
+                // More info accordion
+            }
             <ListItem.Accordion
                 isExpanded={expanded} topDivider containerStyle={{ backgroundColor: color.primaryContainer }}
                 content={
@@ -44,8 +51,7 @@ export default function LocationScreen({ navigation, route }) {
                         Mais Informações
                     </Label></ListItem.Title></ListItem.Content>
                 }
-                onPress={() => { setExpanded(!expanded); }}
-            >
+                onPress={() => { setExpanded(!expanded); }}            >
                 <ListItem containerStyle={{ backgroundColor: color.primaryContainer, flexDirection: 'column' }}>
                     {body.map((content, i) =>
                         <ListItem.Content key={i}>
@@ -59,7 +65,10 @@ export default function LocationScreen({ navigation, route }) {
                     )}
                 </ListItem>
             </ListItem.Accordion>
-            <TrackList tracks={tracks} navigation={navigation} />
+            {
+                // Tracks
+            }
+            <TrackList tracks={tracks} navigation={navigation} userDistance={locationContext.userDistance} />
         </ScrollView>
     );
 }
