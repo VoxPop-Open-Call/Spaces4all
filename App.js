@@ -42,7 +42,7 @@ export default function App() {
 
   const [userDistance, setUserDistance] = useState(null);
 
-  async function getDistance(latitude, longitude) {
+  function getDistance(latitude, longitude) {
     const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${userLocation.coords.latitude},${userLocation.coords.longitude}&destinations=${latitude},${longitude}&key=${REACT_APP_API_KEY}`;
     axios
       .get(url)

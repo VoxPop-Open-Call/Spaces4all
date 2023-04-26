@@ -32,6 +32,7 @@ const GetDistance = (props) => {
         }
 
     }, [refreshing]);
+
     return (<Text>{userDistance === null || userDistance === undefined ? <ActivityIndicator color={color.primary} /> : userDistance.text + " de distancia."}</Text>);
 }
 

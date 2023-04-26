@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Alert } from "react-native";
-import { Container, Map, Checkpoint, Header, Distance } from "./styledTrackScreen";
+import { Container, Map, Checkpoint, Path, Header, Bottom, Distance, Title } from "./styledTrackScreen";
 import MapViewDirections from "react-native-maps-directions";
 import LocationContext from "../LocationContext";
 import { color } from "../../global";
@@ -55,6 +55,8 @@ export default function TrackScreen({ navigation, route }) {
 
     // Location
     const checkpoints = route.params.checkpoints
+    const corners = route.params.corners
+    const optionalCheckpoints = route.params.optionalCheckpoints
     const locationContext = useContext(LocationContext);
     const [region, setRegion] = useState({
         latitude: checkpoints[0].latitude,
@@ -93,8 +95,18 @@ export default function TrackScreen({ navigation, route }) {
     return (
         <Container>
 
-            <Header>
-                <Icon type="Io" name="close" size={48} color={color.primary} onPress={() => navigation.goBack()} />
+            <Header style={{
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 3.84,
+
+                elevation: 5,
+            }}>
+                <Icon type="Io" name="close" size={48} color={color.onPrimaryContainer} onPress={() => navigation.goBack()} />
                 <Distance>
                     {distance >= 1000 ? (distance / 1000) + ' km' : Math.round(distance) + ' m'}
                 </Distance>
@@ -104,8 +116,7 @@ export default function TrackScreen({ navigation, route }) {
                 followsUserLocation
                 initialRegion={region}
                 showsUserLocation
-                zoomEnabled={false}
-                minZoomLevel={16}
+                minZoomLevel={16.5}
                 maxZoomLevel={20}
                 loadingEnabled={true}
                 onUserLocationChange={
@@ -121,16 +132,25 @@ export default function TrackScreen({ navigation, route }) {
                     }
                 }
             >
-                {checkpoints.slice(currentCheckpoint, checkpoints.length).map((checkpoint, i) => (
+                <Checkpoint
+                    coordinate={checkpoints[currentCheckpoint]}
+                    title={checkpoints[currentCheckpoint].title}
+                    description={checkpoints[currentCheckpoint].description}
+                    opacity={0.7}
+                />
+
+                {optionalCheckpoints.map((checkpoint, i) => (
                     <Checkpoint
                         key={i}
                         coordinate={checkpoint}
                         title={checkpoint.title}
                         description={checkpoint.description}
-                    />))
+                        pinColor={'yellow'}
+                        opacity={0.7}
+                    />
+                ))
                 }
-
-                {(currentCheckpoint === 0) && // Using googles automatic directions
+                {(currentCheckpoint === 0) ? // Using googles automatic directions
                     <MapViewDirections
                         origin={userLocation}
                         destination={checkpoints[currentCheckpoint]}
@@ -145,9 +165,34 @@ export default function TrackScreen({ navigation, route }) {
                         }}
                         resetOnChange={false}
                     />
+                    :
+                    // Using manual directions
+                    <Path
+                        coordinates={corners}
+                        strokeWidth={3}
+                        strokeColor={color.primary}
+                    />
                 }
-
             </Map>
+
+            <Bottom style={{
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
+
+                elevation: 10,
+            }}>
+                <Icon type="material" name="remove" size={30} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+
+                <Title>
+                    <Icon type="material" name="location-pin" size={15} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                    {checkpoints[currentCheckpoint].title}
+                </Title>
+            </Bottom>
         </Container>
     )
 }
