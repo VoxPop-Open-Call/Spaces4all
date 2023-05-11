@@ -15,6 +15,7 @@ const Checkpoint = styled(Marker)`
 `
 const Path = styled(Polyline)`
 `
+
 const Header = styled(View)`
     display: flex;
     flex-direction: row;
@@ -39,25 +40,11 @@ const Distance = styled(Text)`
     line-height: 29px;
     margin: auto;
 `
-const Bottom = styled(View)`
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    background-color: ${color.primaryContainer};
-    min-height: ${dimensions.navBar + "px"};
-    padding: 8px 16px;
-    justify-content: center;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    elevation: 10;
-`
+
 const Title = styled(Text)`
     font-size: 20px;
     font-weight: bold;
     z-index: 3;
     color: ${color.onPrimaryContainer};
 `
-export { Container, Map, Checkpoint, Path, Header, Bottom, Distance, Title }
+export { Container, Map, Checkpoint, Path, Header, Distance, Title }

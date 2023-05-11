@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { Alert } from "react-native";
-import { Container, Map, Checkpoint, Path, Header, Bottom, Distance, Title } from "./styledTrackScreen";
+import { Container, Map, Checkpoint, Path, Header, Distance } from "./styledTrackScreen";
 import MapViewDirections from "react-native-maps-directions";
-import LocationContext from "../LocationContext";
+import { LocationContext } from '../../Context/Location';
 import { color } from "../../global";
 import { REACT_APP_API_KEY } from '@env';
 import { Icon } from "@rneui/base";
+import InfoBar from "../InfoBar";
+import { TTSButton } from "../TTSButton";
 
 // On deploy steps on https://docs.expo.dev/versions/latest/sdk/map-view/ must be taken
 
@@ -71,7 +73,6 @@ export default function TrackScreen({ navigation, route }) {
     // attempt to set initial gps location
     useEffect(() => {
         locationContext.getLocation();
-        console.log(locationContext.errorMsg);
         if (locationContext.errorMsg !== null) {
             navigation.goBack();
         }
@@ -174,25 +175,8 @@ export default function TrackScreen({ navigation, route }) {
                     />
                 }
             </Map>
-
-            <Bottom style={{
-                shadowColor: "#000",
-                shadowOffset: {
-                    width: 0,
-                    height: 5,
-                },
-                shadowOpacity: 0.34,
-                shadowRadius: 6.27,
-
-                elevation: 10,
-            }}>
-                <Icon type="material" name="remove" size={30} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-
-                <Title>
-                    <Icon type="material" name="location-pin" size={15} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                    {checkpoints[currentCheckpoint].title}
-                </Title>
-            </Bottom>
+            <TTSButton />
+            <InfoBar checkpoint={checkpoints[currentCheckpoint]} />
         </Container>
     )
 }

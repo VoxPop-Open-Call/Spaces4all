@@ -1,7 +1,7 @@
 import { useEffect, useContext, useCallback } from 'react';
 import { Text, ActivityIndicator } from 'react-native';
 import { color } from '../../global';
-import LocationContext from '../LocationContext';
+import { LocationContext } from '../../Context/Location';
 import { useState } from 'react';
 import axios from 'axios';
 import { REACT_APP_API_KEY } from '@env';
@@ -27,7 +27,7 @@ const GetDistance = (props) => {
                     setUserDistance(r.data.rows[0].elements[0].distance);
                 })
                 .catch(err => {
-                    console.log(err);
+                    console.error(err);
                 });
         }
 

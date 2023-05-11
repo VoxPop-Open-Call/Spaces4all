@@ -4,7 +4,8 @@ import { Container } from "./styledHomeScreen";
 import { Card } from "../Card";
 import { useState, useEffect, useCallback, useContext } from 'react';
 import { RefreshControl } from 'react-native';
-import LocationContext from '../LocationContext'
+import { LocationContext } from '../../Context/Location';
+
 
 export default function HomeScreen({ navigation, route }) {
     //Refresh

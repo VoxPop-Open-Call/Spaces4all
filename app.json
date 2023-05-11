@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        "expo-localization"
+    ],
+    "expo": {
+        "ios": {
+            "config": {
+                "usesNonExemptEncryption": false
+            }
+        }
+    }
+}

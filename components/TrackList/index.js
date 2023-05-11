@@ -20,7 +20,12 @@ export default function TrackList(props) {
                             </Info>
                         </InfoRow>
                     </Body>
-                    <PlayButton onPress={() => props.navigation.navigate('Track', track)} disabled={props.userDistance === null ? true : props.userDistance.value > 1000}>
+                    <PlayButton
+                        onPress={() => props.navigation.navigate('Track', track)}
+                        disabled={props.userDistance === null ? true : props.userDistance.value > 1000}
+                        activeOpacity='0.9'
+                        underlayColor='#222222'
+                    >
                         <Icon type="antdesign" name="caretright" color={color.onPrimary} size={18}></Icon>
                     </PlayButton>
                 </Item>

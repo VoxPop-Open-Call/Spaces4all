@@ -5,7 +5,8 @@ import { Label, DescriptionTitle, DescriptionBody, DescriptionBodyItem } from '.
 import { color } from '../../global';
 import TrackList from '../TrackList';
 import OpenCard from '../OpenCard';
-import LocationContext from '../LocationContext'
+import { LocationContext } from '../../Context/Location';
+
 
 export default function LocationScreen({ navigation, route }) {
     const [expanded, setExpanded] = useState(false);
