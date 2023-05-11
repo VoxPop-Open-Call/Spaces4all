@@ -1,13 +1,20 @@
 import { ThemeProvider } from '@rneui/themed';
-import { StackNavigator, SideNavigator } from './components/Navigator'
+import { StackNavigator } from './components/Navigator'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PreferencesProvider } from './Context/Preferences';
+import { LocationProvider } from './Context/Location';
 
 export default function App() {
+
   return (
     <SafeAreaProvider>
-      <ThemeProvider>
-        <StackNavigator />
-      </ThemeProvider>
+      <LocationProvider>
+        <PreferencesProvider>
+          <ThemeProvider>
+            <StackNavigator />
+          </ThemeProvider>
+        </PreferencesProvider>
+      </LocationProvider>
     </SafeAreaProvider>
   );
 }

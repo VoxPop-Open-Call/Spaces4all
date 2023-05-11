@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Text } from '@rneui/base';
 import { View } from 'react-native';
-import { color, dimensions } from '../global';
+import { color, dimensions } from '../../global';
 
 
 const Background = styled(View)`

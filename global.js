@@ -1,9 +1,12 @@
-import { Dimensions } from 'react-native'
+import { StatusBar, Dimensions } from 'react-native';
+import { getLocales } from 'expo-localization';
 
 const dimensions = {
     'width': Dimensions.get('window').width,
     'height': Dimensions.get('screen').height,
-    'safeHeight': Dimensions.get('window').height
+    'safeHeight': Dimensions.get('window').height,
+    'navBar': Dimensions.get('screen').height - (StatusBar.currentHeight + Dimensions.get('window').height),
+    'statusBar': StatusBar.currentHeight
 };
 
 const color = {
@@ -15,5 +18,8 @@ const color = {
     'onBackground': '#000000'
 };
 
+const rawLocale = getLocales()
+const locale = rawLocale[0].languageCode === 'pt' ? 'pt-PT' : 'en-GB'
 
-export { color, dimensions }
+export { color, dimensions, locale }
+
