@@ -14,7 +14,6 @@ import { TTSButton } from "../TTSButton";
 
 function getDistance(origin, destination) {
     //Calculates distance (without accounting for roads) in m
-
     const deg2rad = (deg) => deg * (Math.PI / 180);
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(destination.latitude - origin.latitude); // deg2rad below
@@ -30,7 +29,6 @@ function getDistance(origin, destination) {
 export default function TrackScreen({ navigation, route }) {
 
     // Back action check and alert
-
     useEffect(
         () =>
             navigation.addListener('beforeRemove', (e) => {
@@ -53,7 +51,7 @@ export default function TrackScreen({ navigation, route }) {
                 );
             }),
         [navigation]
-    );
+    ), [];
 
     // Location
     const checkpoints = route.params.checkpoints
@@ -69,12 +67,14 @@ export default function TrackScreen({ navigation, route }) {
     const [userLocation, setUserLocation] = useState(locationContext.userLocation);
     const [distance, setDistance] = useState(0);
     const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
+    const [currentCorner, setCurrentCorner] = useState(0);
 
     // attempt to set initial gps location
     useEffect(() => {
+
         locationContext.getLocation();
         if (locationContext.errorMsg !== null) {
-            navigation.goBack();
+            navigation.navigate('TrackEndScreen')       
         }
         setUserLocation(locationContext.userLocation.coords);
     }, []);
@@ -85,11 +85,41 @@ export default function TrackScreen({ navigation, route }) {
             // Checkpoint reached
             if (checkpoints.length === currentCheckpoint + 1) {
                 // It was the last checkpoint, end track
-                navigation.goBack();
+                // TODO: Track completion screen
+
+                navigation.navigate('TrackEndScreen')
+
                 return;
             }
-            // More checkpoints ahead, change text
+            // More checkpoints ahead, change text,
             setCurrentCheckpoint(currentCheckpoint + 1);
+        }
+    }, [distance]);
+
+    // detect proximity to current corner 
+    useEffect(() => {
+        if (currentCheckpoint === 0 || currentCorner.length === currentCorner + 1) { // Checks if the course has begun or is near the end
+            return;
+        }
+        let currentDistance = getDistance(userLocation, corners[currentCorner + 1]); // Checks distance until the next corner
+        if (currentDistance < 25) {
+            setCurrentCorner(currentCorner + 1); // corner reached
+        }
+        if (currentDistance > 75) {  // corner too far, checks for the nearest corner
+            let lowestDistance = currentDistance;
+            let bestCheckpoint = 0;
+            for (let i = 0; i < corners.slice(currentCorner).length - 1; i++) {
+                let iDistance = getDistance(userLocation, corners.slice(currentCorner)[i])
+                if (iDistance > currentDistance) {
+                    continue;
+                }
+                if (iDistance < lowestDistance) {
+                    lowestDistance = iDistance;
+
+                    bestCheckpoint = i;
+                }
+            }
+            setCurrentCorner(currentCorner + bestCheckpoint);
         }
     }, [distance]);
 
@@ -123,12 +153,10 @@ export default function TrackScreen({ navigation, route }) {
                 onUserLocationChange={
                     (newLocation) => {
                         if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 15) {
-                            // Avoiding constant location updates with a movement distance threshold 
-                            setUserLocation(newLocation.nativeEvent.coordinate);
+                            setUserLocation(newLocation.nativeEvent.coordinate); // Avoiding constant location updates with a movement distance threshold 
                         }
                         if (currentCheckpoint !== 0) {
-                            // Setting distance if the user is inside the track
-                            setDistance(getDistance(userLocation, checkpoints[currentCheckpoint]));
+                            setDistance(getDistance(userLocation, checkpoints[currentCheckpoint])); // Setting distance if the user is inside the track
                         }
                     }
                 }
@@ -161,22 +189,26 @@ export default function TrackScreen({ navigation, route }) {
                         strokeColor={color.primary}
                         precision="high"
                         onReady={(ready) => {
-                            // Setting distance if the user is outside the track
-                            setDistance(ready.distance * 1000);
+                            setDistance(ready.distance * 1000); // Setting distance if the user is outside the track
                         }}
                         resetOnChange={false}
                     />
                     :
-                    // Using manual directions
-                    <Path
-                        coordinates={corners}
+
+                    <Path // Using manual directions
+
+                        coordinates={corners.slice(currentCorner)}
                         strokeWidth={3}
                         strokeColor={color.primary}
                     />
                 }
             </Map>
             <TTSButton />
-            <InfoBar checkpoint={checkpoints[currentCheckpoint]} />
+            <InfoBar
+                checkpoint={checkpoints[currentCheckpoint]}
+                trackStarted={currentCheckpoint !== 0}
+                corner={corners[currentCorner]}
+            />
         </Container>
     )
 }

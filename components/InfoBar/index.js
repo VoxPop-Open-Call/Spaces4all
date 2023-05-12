@@ -10,14 +10,14 @@ import { TouchableWithoutFeedback } from "react-native"
 import { dimensions } from "../../global";
 
 export default function InfoBar(props) {
-
-    const [checkpoint, setCheckpoint] = useState(props.checkpoint)
-
     // TTS
     const preferences = useContext(PreferencesContext)
 
+    const checkpoint = props.checkpoint;
+    const corner = props.corner;
+    const trackStarted = props.trackStarted;
     useEffect(() => {
-        if (preferences.TTS) {
+        if (preferences.TTS && trackStarted) {
             Speech.stop();
             Speech.speak(
                 checkpoint.title,
@@ -29,12 +29,14 @@ export default function InfoBar(props) {
                 }
             );
         }
+    }, [checkpoint, trackStarted]);
 
-    }, [checkpoint]);
+    useEffect(() => {
+        if (preferences.TTS && corner.direction !== "" && trackStarted) {
+            Speech.speak(corner.direction, { language: locale });
+        }
 
-    if (props.checkpoint !== checkpoint) {
-        setCheckpoint(props.checkpoint)
-    }
+    }, [corner, trackStarted]);
 
     // Drawer animation
     const [isOpen, setIsOpen] = useState(false)
@@ -72,7 +74,6 @@ export default function InfoBar(props) {
                     }}
                     >
                         <Line />
-
                         <Title>
                             <Icon type="material" name="location-pin" size={15} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
                             {checkpoint.title}
