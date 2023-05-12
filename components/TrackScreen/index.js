@@ -67,9 +67,10 @@ export default function TrackScreen({ navigation, route }) {
     const [userLocation, setUserLocation] = useState(locationContext.userLocation);
     const [distance, setDistance] = useState(0);
     const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
-
+    const [currentCorner, setCurrentCorner] = useState(0);
     // attempt to set initial gps location
     useEffect(() => {
+
         locationContext.getLocation();
         if (locationContext.errorMsg !== null) {
             navigation.navigate('TrackEndScreen')

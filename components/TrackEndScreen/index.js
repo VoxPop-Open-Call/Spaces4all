@@ -1,9 +1,12 @@
 import { Background, Container, Stars, SubTitle, Title } from "./StyledTrackEndScreen";
 import { Icon, Button } from "@rneui/base";
-import { color } from "../../global";
-import { useState, useEffect } from "react";
+import { color, locale } from "../../global";
+import { useState, useEffect, useContext } from "react";
+import { PreferencesContext } from "../../Context/Preferences";
+import * as Speech from 'expo-speech';
 
 export default function TrackEndScreen({ navigation }) {
+    // Back button handle
     useEffect(
         () =>
             navigation.addListener('beforeRemove', (e) => {
@@ -14,6 +17,16 @@ export default function TrackEndScreen({ navigation }) {
             }),
         [navigation]
     ), [];
+
+    // TTS
+    const preferences = useContext(PreferencesContext)
+    useEffect(() => {
+        if (preferences.TTS) {
+            Speech.stop();
+            Speech.speak("Percurso Terminado!", { language: locale });
+        }
+
+    }, []);
 
     const [starCount, setStarCount] = useState(-1);
 
