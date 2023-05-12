@@ -51,7 +51,7 @@ export default function TrackScreen({ navigation, route }) {
                 );
             }),
         [navigation]
-    );
+    ), [];
 
     // Location
     const checkpoints = route.params.checkpoints
@@ -68,12 +68,13 @@ export default function TrackScreen({ navigation, route }) {
     const [distance, setDistance] = useState(0);
     const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
     const [currentCorner, setCurrentCorner] = useState(0);
+
     // attempt to set initial gps location
     useEffect(() => {
 
         locationContext.getLocation();
         if (locationContext.errorMsg !== null) {
-            navigation.navigate('TrackEndScreen')
+            navigation.navigate('TrackEndScreen')       
         }
         setUserLocation(locationContext.userLocation.coords);
     }, []);
@@ -85,10 +86,12 @@ export default function TrackScreen({ navigation, route }) {
             if (checkpoints.length === currentCheckpoint + 1) {
                 // It was the last checkpoint, end track
                 // TODO: Track completion screen
+
                 navigation.navigate('TrackEndScreen')
+
                 return;
             }
-            // More checkpoints ahead, change text
+            // More checkpoints ahead, change text,
             setCurrentCheckpoint(currentCheckpoint + 1);
         }
     }, [distance]);
@@ -112,6 +115,7 @@ export default function TrackScreen({ navigation, route }) {
                 }
                 if (iDistance < lowestDistance) {
                     lowestDistance = iDistance;
+
                     bestCheckpoint = i;
                 }
             }
@@ -190,7 +194,9 @@ export default function TrackScreen({ navigation, route }) {
                         resetOnChange={false}
                     />
                     :
+
                     <Path // Using manual directions
+
                         coordinates={corners.slice(currentCorner)}
                         strokeWidth={3}
                         strokeColor={color.primary}
@@ -198,7 +204,11 @@ export default function TrackScreen({ navigation, route }) {
                 }
             </Map>
             <TTSButton />
-            <InfoBar checkpoint={checkpoints[currentCheckpoint]} />
+            <InfoBar
+                checkpoint={checkpoints[currentCheckpoint]}
+                trackStarted={currentCheckpoint !== 0}
+                corner={corners[currentCorner]}
+            />
         </Container>
     )
 }
