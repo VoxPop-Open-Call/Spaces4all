@@ -10,6 +10,7 @@ import { Icon, Text } from '@rneui/base/dist';
 import SideMenu from '../SideMenu';
 import HomeScreen from '../HomeScreen';
 import TrackScreen from '../TrackScreen';
+import TrackEndScreen from '../TrackEndScreen';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -96,6 +97,14 @@ function StackNavigator() {
                     component={TrackScreen}
                     options={{
                         title: "Percurso",
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="TrackEndScreen"
+                    component={TrackEndScreen}
+                    options={{
+                        title: "",
                         headerShown: false
                     }}
                 />
