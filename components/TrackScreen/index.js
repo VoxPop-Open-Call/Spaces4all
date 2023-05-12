@@ -14,7 +14,6 @@ import { TTSButton } from "../TTSButton";
 
 function getDistance(origin, destination) {
     //Calculates distance (without accounting for roads) in m
-
     const deg2rad = (deg) => deg * (Math.PI / 180);
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(destination.latitude - origin.latitude); // deg2rad below
@@ -30,7 +29,6 @@ function getDistance(origin, destination) {
 export default function TrackScreen({ navigation, route }) {
 
     // Back action check and alert
-
     useEffect(
         () =>
             navigation.addListener('beforeRemove', (e) => {
@@ -73,9 +71,10 @@ export default function TrackScreen({ navigation, route }) {
 
     // attempt to set initial gps location
     useEffect(() => {
+
         locationContext.getLocation();
         if (locationContext.errorMsg !== null) {
-            navigation.navigate('Home')
+            navigation.navigate('TrackEndScreen')       
         }
         setUserLocation(locationContext.userLocation.coords);
     }, []);
@@ -87,7 +86,9 @@ export default function TrackScreen({ navigation, route }) {
             if (checkpoints.length === currentCheckpoint + 1) {
                 // It was the last checkpoint, end track
                 // TODO: Track completion screen
-                navigation.navigate('Home')
+
+                navigation.navigate('TrackEndScreen')
+
                 return;
             }
             // More checkpoints ahead, change text,
@@ -108,9 +109,13 @@ export default function TrackScreen({ navigation, route }) {
             let lowestDistance = currentDistance;
             let bestCheckpoint = 0;
             for (let i = 0; i < corners.slice(currentCorner).length - 1; i++) {
-                console.log(i)
-                if (getDistance(userLocation, corners.slice(currentCorner)[i]) < lowestDistance) {
-                    lowestDistance = getDistance(userLocation, corners.slice(currentCorner)[i]);
+                let iDistance = getDistance(userLocation, corners.slice(currentCorner)[i])
+                if (iDistance > currentDistance) {
+                    continue;
+                }
+                if (iDistance < lowestDistance) {
+                    lowestDistance = iDistance;
+
                     bestCheckpoint = i;
                 }
             }
@@ -148,12 +153,10 @@ export default function TrackScreen({ navigation, route }) {
                 onUserLocationChange={
                     (newLocation) => {
                         if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 15) {
-                            // Avoiding constant location updates with a movement distance threshold 
-                            setUserLocation(newLocation.nativeEvent.coordinate);
+                            setUserLocation(newLocation.nativeEvent.coordinate); // Avoiding constant location updates with a movement distance threshold 
                         }
                         if (currentCheckpoint !== 0) {
-                            // Setting distance if the user is inside the track
-                            setDistance(getDistance(userLocation, checkpoints[currentCheckpoint]));
+                            setDistance(getDistance(userLocation, checkpoints[currentCheckpoint])); // Setting distance if the user is inside the track
                         }
                     }
                 }
@@ -186,14 +189,14 @@ export default function TrackScreen({ navigation, route }) {
                         strokeColor={color.primary}
                         precision="high"
                         onReady={(ready) => {
-                            // Setting distance if the user is outside the track
-                            setDistance(ready.distance * 1000);
+                            setDistance(ready.distance * 1000); // Setting distance if the user is outside the track
                         }}
                         resetOnChange={false}
                     />
                     :
-                    // Using manual directions
-                    <Path
+
+                    <Path // Using manual directions
+
                         coordinates={corners.slice(currentCorner)}
                         strokeWidth={3}
                         strokeColor={color.primary}
