@@ -52,7 +52,7 @@ export const data = [
                         title: "Lorem1",
                         latitude: 38.73055729425527,
                         longitude: -9.153174274165304,
-                        description: "Lorem ipsum dolor sit amet. Qui quia galisum qui aliquam labore ut eligendi illo et rerum tenetur et explicabo dignissimos cum pariatur sequi et deleniti corporis. Quo aliquid odit non eveniet earum sit nulla quibusdam cum excepturi nihil quo voluptas tenetur.Lorem ipsum dolor sit amet. Qui quia galisum qui aliquam labore ut eligendi illo et rerum tenetur et explicabo dignissimos cum pariatur sequi et deleniti corporis. Quo aliquid odit non eveniet earum sit nulla quibusdam cum excepturi nihil quo voluptas tenetur.Lorem ipsum dolor sit amet. Qui quia galisum qui aliquam labore ut eligendi illo et rerum tenetur et explicabo dignissimos cum pariatur sequi et deleniti corporis. Quo aliquid odit non eveniet earum sit nulla quibusdam cum excepturi nihil quo voluptas tenetur.Lorem ipsum dolor sit amet. Qui quia galisum qui aliquam labore ut eligendi illo et rerum tenetur et explicabo dignissimos cum pariatur sequi et deleniti corporis. Quo aliquid odit non eveniet earum sit nulla quibusdam cum excepturi nihil quo voluptas tenetur.Lorem ipsum dolor sit amet. Qui quia galisum qui aliquam labore ut eligendi illo et rerum tenetur et explicabo dignissimos cum pariatur sequi et deleniti corporis. Quo aliquid odit non eveniet earum sit nulla quibusdam cum excepturi nihil quo voluptas tenetur.Lorem ipsum dolor sit amet. Qui quia galisum qui aliquam labore ut eligendi illo et rerum tenetur et explicabo dignissimos cum pariatur sequi et deleniti corporis. Quo aliquid odit non eveniet earum sit nulla quibusdam cum excepturi nihil quo voluptas tenetur."
+                        description: "tenetur."
                     },
                     {
                         title: "Lorem2",
@@ -86,7 +86,7 @@ export const data = [
                         longitude: -9.153777101430846
                     },
                     {
-                        direction: "Direita",
+                        direction: "Esquerda",
                         latitude: 38.73049374477044,
                         longitude: -9.153447804288348
                     },

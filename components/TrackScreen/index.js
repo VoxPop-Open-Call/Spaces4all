@@ -53,7 +53,7 @@ export default function TrackScreen({ navigation, route }) {
                 );
             }),
         [navigation]
-    );
+    ), [];
 
     // Location
     const checkpoints = route.params.checkpoints
@@ -69,12 +69,13 @@ export default function TrackScreen({ navigation, route }) {
     const [userLocation, setUserLocation] = useState(locationContext.userLocation);
     const [distance, setDistance] = useState(0);
     const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
+    const [currentCorner, setCurrentCorner] = useState(0);
 
     // attempt to set initial gps location
     useEffect(() => {
         locationContext.getLocation();
         if (locationContext.errorMsg !== null) {
-            navigation.goBack();
+            navigation.navigate('Home')
         }
         setUserLocation(locationContext.userLocation.coords);
     }, []);
@@ -85,11 +86,35 @@ export default function TrackScreen({ navigation, route }) {
             // Checkpoint reached
             if (checkpoints.length === currentCheckpoint + 1) {
                 // It was the last checkpoint, end track
-                navigation.goBack();
+                // TODO: Track completion screen
+                navigation.navigate('Home')
                 return;
             }
-            // More checkpoints ahead, change text
+            // More checkpoints ahead, change text,
             setCurrentCheckpoint(currentCheckpoint + 1);
+        }
+    }, [distance]);
+
+    // detect proximity to current corner 
+    useEffect(() => {
+        if (currentCheckpoint === 0 || currentCorner.length === currentCorner + 1) { // Checks if the course has begun or is near the end
+            return;
+        }
+        let currentDistance = getDistance(userLocation, corners[currentCorner + 1]); // Checks distance until the next corner
+        if (currentDistance < 25) {
+            setCurrentCorner(currentCorner + 1); // corner reached
+        }
+        if (currentDistance > 75) {  // corner too far, checks for the nearest corner
+            let lowestDistance = currentDistance;
+            let bestCheckpoint = 0;
+            for (let i = 0; i < corners.slice(currentCorner).length - 1; i++) {
+                console.log(i)
+                if (getDistance(userLocation, corners.slice(currentCorner)[i]) < lowestDistance) {
+                    lowestDistance = getDistance(userLocation, corners.slice(currentCorner)[i]);
+                    bestCheckpoint = i;
+                }
+            }
+            setCurrentCorner(currentCorner + bestCheckpoint);
         }
     }, [distance]);
 
@@ -169,14 +194,18 @@ export default function TrackScreen({ navigation, route }) {
                     :
                     // Using manual directions
                     <Path
-                        coordinates={corners}
+                        coordinates={corners.slice(currentCorner)}
                         strokeWidth={3}
                         strokeColor={color.primary}
                     />
                 }
             </Map>
             <TTSButton />
-            <InfoBar checkpoint={checkpoints[currentCheckpoint]} />
+            <InfoBar
+                checkpoint={checkpoints[currentCheckpoint]}
+                trackStarted={currentCheckpoint !== 0}
+                corner={corners[currentCorner]}
+            />
         </Container>
     )
 }
