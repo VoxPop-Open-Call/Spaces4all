@@ -29,7 +29,6 @@ export default function LocationScreen({ navigation, route }) {
     const locationContext = useContext(LocationContext);
 
     useEffect(() => {
-
         locationContext.getLocation();
         locationContext.getDistance(header.latitude, header.longitude);
         if (locationContext.errorMsg !== null) {

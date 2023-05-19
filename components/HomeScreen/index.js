@@ -23,6 +23,7 @@ export default function HomeScreen({ navigation, route }) {
     const isFocused = useIsFocused();
 
     useEffect(() => {
+        console.log('home')
         locationContext.getLocation()
     }, [isFocused, refreshing]);
 

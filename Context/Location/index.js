@@ -15,7 +15,9 @@ function LocationProvider({ children }) {
     const [errorMsg, setErrorMsg] = useState(null);
 
     async function getLocation() {
-
+        if (errorMsg != null) {
+            return;
+        }
         let { status } = await Location.requestBackgroundPermissionsAsync();
         if (status !== 'granted') {
             setErrorMsg('Permission to access location was denied');
@@ -27,6 +29,7 @@ function LocationProvider({ children }) {
                         text: 'Opções',
                         style: 'destructive',
                         onPress: () => {
+                            setErrorMsg(null);
                             Linking.openSettings();
                         },
                     },
@@ -37,7 +40,7 @@ function LocationProvider({ children }) {
         let location = await Location.getCurrentPositionAsync({});
         setUserLocation(location);
         setErrorMsg(null);
-        return;
+
     };
 
     // provide function to get distance between user and given location
@@ -45,6 +48,9 @@ function LocationProvider({ children }) {
     const [userDistance, setUserDistance] = useState(null);
 
     function getDistance(latitude, longitude) {
+        if (userLocation === null) {
+            return
+        };
         const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${userLocation.coords.latitude},${userLocation.coords.longitude}&destinations=${latitude},${longitude}&key=${REACT_APP_API_KEY}`;
         axios
             .get(url)
