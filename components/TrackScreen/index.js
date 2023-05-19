@@ -71,10 +71,9 @@ export default function TrackScreen({ navigation, route }) {
 
     // attempt to set initial gps location
     useEffect(() => {
-
         locationContext.getLocation();
         if (locationContext.errorMsg !== null) {
-            navigation.navigate('TrackEndScreen')       
+            navigation.navigate('TrackEndScreen')
         }
         setUserLocation(locationContext.userLocation.coords);
     }, []);
@@ -85,8 +84,6 @@ export default function TrackScreen({ navigation, route }) {
             // Checkpoint reached
             if (checkpoints.length === currentCheckpoint + 1) {
                 // It was the last checkpoint, end track
-                // TODO: Track completion screen
-
                 navigation.navigate('TrackEndScreen')
 
                 return;
@@ -95,6 +92,10 @@ export default function TrackScreen({ navigation, route }) {
             setCurrentCheckpoint(currentCheckpoint + 1);
         }
     }, [distance]);
+
+    useEffect(() => {
+        console.log(corners[currentCorner])
+    }, [currentCorner]);
 
     // detect proximity to current corner 
     useEffect(() => {
