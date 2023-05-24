@@ -23,9 +23,10 @@ export default function HomeScreen({ navigation, route }) {
     const isFocused = useIsFocused();
 
     useEffect(() => {
-        console.log('home')
-        locationContext.getLocation()
-    }, [isFocused, refreshing]);
+        if (locationContext.userLocation === null) {
+            locationContext.getLocation()
+        }
+    }, [refreshing, isFocused]);
 
     // Location Updates whenever the user refreshed or changes tabs
 

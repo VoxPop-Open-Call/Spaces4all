@@ -12,29 +12,28 @@ const pt = {
     body: [
         {
             title: "Descrição",
-            data: ["O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII. Localizado em São Sebastião da Pedreira, atual freguesia das Avenidas Novas, foi baptizado em 1903 em honra de Eduardo VII do Reino Unido, que havia visitado Lisboa no ano anterior para reafirmar a aliança entre os dois países. Até então, era designado Parque da Liberdade."]
+            data: ["O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII. Foi batizado em 1903 em honra de Eduardo VII do Reino Unido, que havia visitado Lisboa no ano anterior para reafirmar a aliança entre os dois países. Até então, era designado Parque da Liberdade. No alto do parque, numa zona bem visível da cidade, está hasteada uma grande bandeira de Portugal. O Parque Eduardo VII foi construído na primeira metade do século XX para voltar a dar a Lisboa o que o Passeio Público tinha dado até meados do séc. XIX em termos de fruição do espaço público - e que tinha sido destruído na sequência da abertura da Avenida da Liberdade, em 1882A Feira do Livro de Lisboa realiza-se anualmente, no mês de maio, nos dois passeios longitudinais do Parque."]
         },
         {
             title: "Pontos de Interesse",
             data: [
-                "Edifícios",
-                "Lagos/Fontes"
+                "Estátuas e monumentos",
+                "Lagos/Fontes",
+                "Restaurantes"
             ]
         },
         {
-            title: "Amenidades",
+            title: "Locais de utilidade pública",
             data: [
-                "WC públicos",
-                "Wi-Fi",
+                "WC / Casa de banho",
+                "Bancos",
                 "Quiosques e Bancas",
                 "Tomadas",
-                "Bancos",
-                "Fontes ou bebedouros",
-                "Candeeiros/Iluminação",
-                "Painéis informativos",
-                "Contentores de resíduos",
-                "sólidos e eco pontos",
-                "Parqueamento de bicicletas"
+                "Bebedouros",
+                "Pet frendly",
+                "Ginásio Público",
+                "Parque Infantil",
+                "Parque de Merendas"
             ]
         },
     ],
@@ -50,28 +49,28 @@ const pt = {
                     description: "Ponto de partida"
                 },
                 {
-                    title: "Estátua e Lago",
+                    title: "Estátua com Cavalo e Lago",
                     latitude: 38.7305295,
                     longitude: -9.1532018,
-                    description: "Estatua com cavalo e o espelho d'Água."
+                    description: "Estátua em pedra colocada dentro de um lago, representando uma figura feminina em pé sobre um cavalo, numa linguagem claramente moderna, mas evidenciando ainda um certo academismo e formalismo. Executada por Euclides Vaz, em 1958."
                 },
                 {
-                    title: "Estátua",
+                    title: "Estátua Feminina com Veado",
                     latitude: 38.7301377,
                     longitude: -9.1526030,
-                    description: "Estátua Feminina com veado"
+                    description: "Escultura em pedra representando uma figura feminina com veado, observando o horizonte, estática no seu formalismo académico e idealizado, marcado por uma força e vigor quase masculinos. Executada por Stella de Albuquerque, em 1953."
                 },
                 {
-                    title: "Esculturas",
+                    title: "Pavilhão Carlos Lopes",
                     latitude: 38.7288237,
                     longitude: -9.1518196,
-                    description: "A Arte e A Ciência"
+                    description: "Foi projetado para ser o Pavilhão das Indústrias Portuguesas, em 1922 durante a Exposição Internacional do Rio de Janeiro, sendo construído essencialmente com elementos transportados de Portugal para o Brasil. Após a exposição foi desmontado e transferido para Portugal, sendo implantado em Lisboa desde 1932 no Parque Eduardo VII. Foi o local da Grande Exposição da Indústria Portuguesa e usado durante décadas para a realização de eventos culturais, artísticos e políticos e desportivos, tendo sido remodelado em 2016."
                 },
                 {
-                    title: "Lago e Estátuas",
+                    title: "Estátua Figura Feminina, Lago e Estátua mãe e Filho",
                     latitude: 38.7281457,
                     longitude: -9.1507733,
-                    description: "Estátua Figura Feminina, Lago e Estátua mãe e Filho"
+                    description: "Figura Feminina, Escultura em pedra mármore representando uma figura feminina reclinada, apoiada no antebraço, executada por Vasco Pereira da Conceição. Estátua mãe e Filho, Peça em pedra composta por duas figuras nuas de mãe e filho, representando a maternidade, executada por António Duarte."
                 },
                 {
                     title: "Poema e WC",
@@ -86,16 +85,16 @@ const pt = {
                     description: "Snack bars, estatuas, cafés e WCs"
                 },
                 {
-                    title: "Estátua",
+                    title: "Vento Garroa",
                     latitude: 38.7282462,
                     longitude: -9.1546045,
-                    description: "Vento Garroa"
+                    description: "Escultura em mármore de Estremoz, representando uma figura feminina que segura com a mão esquerda a proa de um saveiro, embarcação típica dos pescadores da Caparica, foi executada, em 1954, pelo mestre Soares Branco e inaugurada no mesmo ano"
                 },
                 {
-                    title: "Miradouro",
+                    title: "Monumento 25 de abril (Topo do Miradouro)",
                     latitude: 38.7303721,
                     longitude: -9.1544515,
-                    description: "Miradouro Eduardo VII"
+                    description: "Ladeado por 2 conjuntos de 2 obeliscos de inspiração autoritária do projeto original do Parque. O monumento ao 25 de Abril (onde se vê, nomeadamente, um cravo vermelho) foi inaugurado em 1997, e é da autoria de João Cutileiro."
                 },
                 {
                     title: "Fim",
@@ -185,7 +184,7 @@ const pt = {
                     title: 'Escultura Eduardo VII',
                     latitude: 38.7285203,
                     longitude: -9.1549963,
-                    description: ''
+                    description: 'Está integrado no Parque, e tem uma vista que atravessa toda o vale da Avenida da Liberdade, a Baixa Pombalina e as encostas que a definem (à esquerda o Castelo de São Jorge, à direita as ruínas do Convento do Carmo), perdendo-se no leito do Tejo e, em dias de boa visibilidade, alcançando a outra margem.'
                 }
 
             ]
@@ -208,28 +207,26 @@ const en = {
             data: ["Eduardo VII Park (Portuguese: Parque Eduardo VII) is a public park in Lisbon, Portugal. The park occupies an area of 26 hectares (64 acres) to the north of Avenida da Liberdade and Marquis of Pombal Square in Lisbon's city center."]
         },
         {
-            title: "Points of Interest",
+            title: "Intrest points",
             data: [
-                "Buildings",
-                "Lakes and Fountains"
+                "Statues and Monuments",
+                "Lakes and Fountains",
+                "Restaurants"
             ]
         },
         {
-            title: "Amenities",
+            title: "Public amenities",
             data: [
-                "Public Bathrooms",
-                "Wi-Fi",
-                "Information Booth",
-                "Outlets",
+                "WC",
                 "Benches",
-                "Drinking fountains",
-                "Well lit",
-                "information panels",
-                "Bins",
-                "Eco points",
-                "Bicycle parking"
+                "Information kiosk",
+                "Drinking fountain",
+                "Pet frendly",
+                "Public Gym",
+                "Kids zone",
+                "Food court"
             ]
-        },
+        }
     ],
     tracks: [
         {
@@ -240,31 +237,25 @@ const en = {
                     title: "Start",
                     latitude: 38.73077702028016,
                     longitude: -9.154119931332627,
-                    description: "Starting point"
+                    description: "Starting Point"
                 },
                 {
-                    title: "Statue and Lake",
-                    latitude: 38.7305295,
-                    longitude: -9.1532018,
-                    description: "Horse statue and water mirror."
-                },
-                {
-                    title: "Statue",
+                    title: "Female Statue with a Deer",
                     latitude: 38.7301377,
                     longitude: -9.1526030,
-                    description: "Female statue with a deer"
+                    description: "Stone sculpture representing a female figure with a deer, watching the horizon, static in its academic and idealized formalism, marked by an almost masculine strength and vigour. Executed by Stella de Albuquerque, in 1953."
                 },
                 {
-                    title: "Sculpture",
+                    title: "Carlos Lopes Pavilion",
                     latitude: 38.7288237,
                     longitude: -9.1518196,
-                    description: "The Arte and The Science"
+                    description: "It was designed to be the Pavilhão das Indústrias Portuguesas, in 1922 during the International Exhibition in Rio de Janeiro, being built essentially with elements transported from Portugal to Brazil. After the exhibition, it was dismantled and transferred to Portugal, being implanted in Lisbon in Eduardo VII Park since 1932. It was the site of the Great Exhibition of Portuguese Industry and used for decades to hold cultural, artistic, political and sports events, having been refurbished in 2016."
                 },
                 {
-                    title: "Lake and Statues",
+                    title: "'Female Figure' Statue, Lake and 'Mother and Child' Statue",
                     latitude: 38.7281457,
                     longitude: -9.1507733,
-                    description: "Statue of the female figure, a small Lake and Statue 'mãe e Filho'"
+                    description: "Female Figure, Sculpture in marble stone representing a reclining female figure, supported on her forearm, executed by Vasco Pereira da Conceição. Mother and Child Statue, Stone piece composed of two naked figures of mother and child, representing motherhood, executed by Antonio Duarte."
                 },
                 {
                     title: "Poem and WC",
@@ -273,22 +264,22 @@ const en = {
                     description: ""
                 },
                 {
-                    title: "Kids Zone",
+                    title: "Playground",
                     latitude: 38.7279365,
                     longitude: -9.1543523,
-                    description: "Snack bars, statues, café and WCs"
+                    description: "Snack bars, statues, cafes and toilets"
                 },
                 {
-                    title: "Estátua",
+                    title: "Wind Garroa",
                     latitude: 38.7282462,
                     longitude: -9.1546045,
-                    description: "Statue called 'Vento Garroa'"
+                    description: "Sculpture in marble from Estremoz, representing a female figure holding the prow of a sloop with her left hand, a typical vessel of Caparica fishermen, was executed in 1954 by master Soares Branco and inaugurated in the same year"
                 },
                 {
-                    title: "Miradouro",
+                    title: "25th of April Monument (Top of the Viewpoint)",
                     latitude: 38.7303721,
                     longitude: -9.1544515,
-                    description: "Eduardo VII Viewpoint"
+                    description: "Flanked by 2 sets of 2 obelisks of authoritarian inspiration from the Park's original project. The monument to the 25th of April (where you can see, namely, a red carnation) was inaugurated in 1997, and is the authorship of João Cutileiro."
                 },
                 {
                     title: "End",
