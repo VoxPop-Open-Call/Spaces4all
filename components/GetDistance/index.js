@@ -12,6 +12,7 @@ const GetDistance = (props) => {
     const [userDistance, setUserDistance] = useState(null);
 
     useEffect(() => {
+        console.log('aa')
         if (locationContext.userLocation === null) {
             return;
         }
@@ -24,9 +25,9 @@ const GetDistance = (props) => {
             .catch(err => {
                 console.error(err);
             });
-    });
+    }, [locationContext.userLocation]);
 
-    return (<Text>{userDistance === null || userDistance === undefined ? <ActivityIndicator color={color.primary} /> : userDistance.text + " de distancia."}</Text>);
+    return (<Text userLocation={locationContext.userLocation}>{userDistance === null || userDistance === undefined ? <ActivityIndicator color={color.primary} /> : userDistance.text + " de distancia."}</Text>);
 }
 
 export { GetDistance };

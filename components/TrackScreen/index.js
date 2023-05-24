@@ -80,7 +80,7 @@ export default function TrackScreen({ navigation, route }) {
 
     // detect proximity to current checkpoint 
     useEffect(() => {
-        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 35) {
+        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 25) {
             // Checkpoint reached
             if (checkpoints.length === currentCheckpoint + 1) {
                 // It was the last checkpoint, end track
@@ -206,7 +206,7 @@ export default function TrackScreen({ navigation, route }) {
             </Map>
             <TTSButton />
             <InfoBar
-                checkpoint={checkpoints[currentCheckpoint]}
+                checkpoint={checkpoints[currentCheckpoint === 0 ? 0 : currentCheckpoint - 1]} // Sends data from the previous checkpoint
                 trackStarted={currentCheckpoint !== 0}
                 corner={corners[currentCorner]}
             />

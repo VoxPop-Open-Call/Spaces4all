@@ -6,11 +6,12 @@ import { color } from '../../global';
 import TrackList from '../TrackList';
 import OpenCard from '../OpenCard';
 import { LocationContext } from '../../Context/Location';
+import { useIsFocused } from "@react-navigation/native";
+
 
 
 export default function LocationScreen({ navigation, route }) {
     const [expanded, setExpanded] = useState(false);
-
     const header = route.params.location.header
     const body = route.params.location.body
     const tracks = route.params.location.tracks
@@ -27,14 +28,15 @@ export default function LocationScreen({ navigation, route }) {
     //Location
 
     const locationContext = useContext(LocationContext);
+    const isFocused = useIsFocused();
 
     useEffect(() => {
-        locationContext.getLocation();
-        locationContext.getDistance(header.latitude, header.longitude);
-        if (locationContext.errorMsg !== null) {
-            navigation.goBack()
+        if (locationContext.userLocation === null) {
+            locationContext.getLocation()
         }
-    }, [refreshing]);
+        locationContext.getDistance(header.latitude, header.longitude);
+    }, [refreshing, isFocused]);
+
 
     return (
         <ScrollView style={{ backgroundColor: "#D9CBEF" }}>
