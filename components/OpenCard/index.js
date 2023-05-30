@@ -1,4 +1,4 @@
-import { color } from "../../global";
+import { color, localeTexts } from "../../global";
 import { Card, Title, Info, CardBody, CardRow, CardInfo } from "./styledOpenCard";
 import { Image, Icon } from '@rneui/themed';
 import { ActivityIndicator } from "react-native";
@@ -22,7 +22,7 @@ export default function OpenCard(props) {
 
                 <CardRow>
                     <Icon type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                    <Info>{props.userDistance === null || props.userDistance === undefined ? <ActivityIndicator color={color.primary} /> : props.userDistance.text + " de distancia."}</Info>
+                    <Info>{props.userDistance === null || props.userDistance === undefined ? <ActivityIndicator color={color.primary} /> : props.userDistance.text + localeTexts['fromdistance']}</Info>
                 </CardRow>
                 <CardRow>
                     <CardInfo>
@@ -31,7 +31,7 @@ export default function OpenCard(props) {
                     </CardInfo>
                     <CardInfo>
                         <Icon type="material" name="schedule" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                        <Info >{header.openingTime === header.closingTime ? "Aberto 24 horas" : header.openingTime + " - " + header.closingTime}</Info>
+                        <Info >{header.openingTime === header.closingTime ? localeTexts['open24hours'] : header.openingTime + " - " + header.closingTime}</Info>
                     </CardInfo>
                 </CardRow>
             </CardBody>

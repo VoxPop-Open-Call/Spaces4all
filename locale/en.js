@@ -1,0 +1,21 @@
+const en = {'home': 'Home',
+'settings': 'Settings',
+'feedback': 'Feedback',
+'location': 'Location',
+'track': 'Track',
+'allowlocation': 'Space 4 All needs your location for work properly, allow GPS for Space 4 All on settings please',
+'option': 'Options',
+'description': 'Description',
+'open24hours': 'Open 24 hours',
+'interess': 'Points of Interess',
+'fromdistance': 'from distance',
+'trackfinished': 'Track Finished!',
+'whatdiduthink': 'What did you think?',
+'send': 'Send',
+'sure': 'Are you sure?',
+'leaving': 'If you leave now, you will have to start over from the beginning.',
+'cancel': 'Cancel',
+'exit': 'Exit',
+'local': 'Local'}
+
+export default en

@@ -3,7 +3,7 @@ import { Alert } from "react-native";
 import { Container, Map, Checkpoint, Path, Header, Distance } from "./styledTrackScreen";
 import MapViewDirections from "react-native-maps-directions";
 import { LocationContext } from '../../Context/Location';
-import { color } from "../../global";
+import { color, localeTexts } from "../../global";
 import { REACT_APP_API_KEY } from '@env';
 import { Icon } from "@rneui/base";
 import InfoBar from "../InfoBar";
@@ -36,12 +36,12 @@ export default function TrackScreen({ navigation, route }) {
                 e.preventDefault();
                 // Prompt the user before leaving the screen
                 Alert.alert(
-                    'Tem certeza?',
-                    'Caso saia agora terá de recomeçar o percurso do início.',
+                    localeTexts['sure'],
+                    localeTexts['leaving'],
                     [
-                        { text: "Cancelar", style: 'cancel', onPress: () => { } },
+                        { text: localeTexts['cancel'], style: 'cancel', onPress: () => { } },
                         {
-                            text: 'Sair',
+                            text: localeTexts['exit'],
                             style: 'destructive',
                             // If the user confirmed, then we dispatch the action we blocked earlier
                             // This will continue the action that had triggered the removal of the screen

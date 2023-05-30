@@ -1,7 +1,7 @@
 import { ActivityIndicator } from "react-native";
 import { Image, Icon } from '@rneui/themed';
 import { StyledCard, Title, CardBody, CardRow, CardInfo, Info } from "./styledCard";
-import { color } from "../../global";
+import { color, localeTexts } from "../../global";
 import { GetDistance } from '../GetDistance';
 
 
@@ -33,7 +33,7 @@ const Card = ({ name, image, latitude, longitude, openingTime, closingTime, trac
                     </CardInfo>
                     <CardInfo>
                         <Icon type="material" name="schedule" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                        <Info>{openingTime === closingTime ? "Aberto 24 horas" : openingTime + " - " + closingTime}</Info>
+                        <Info>{openingTime === closingTime ? localeTexts['open24hours'] : openingTime + " - " + closingTime}</Info>
                     </CardInfo>
                 </CardRow>
             </CardBody>
