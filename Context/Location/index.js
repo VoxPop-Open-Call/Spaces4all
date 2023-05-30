@@ -4,6 +4,7 @@ import * as Location from 'expo-location';
 import { Alert, Linking } from 'react-native';
 import { REACT_APP_API_KEY } from '@env';
 import axios from 'axios';
+import { localeTexts } from '../../global';
 
 const LocationContext = createContext(undefined)
 
@@ -22,11 +23,11 @@ function LocationProvider({ children }) {
         if (status !== 'granted') {
             setErrorMsg('Permission to access location was denied');
             Alert.alert(
-                'Localizção',
-                'A App precisa da vossa localização para funcionar, pedimos que active a Localização por GPS e permita a App nas configurações.',
+                localeTexts['location'],
+                localeTexts['allowlocation'],
                 [
                     {
-                        text: 'Opções',
+                        text: localeTexts['option'],
                         style: 'destructive',
                         onPress: () => {
                             setErrorMsg(null);

@@ -1,6 +1,6 @@
 import { Background, Container, Stars, SubTitle, Title } from "./StyledTrackEndScreen";
 import { Icon, Button } from "@rneui/base";
-import { color, locale } from "../../global";
+import { color, locale, localeTexts } from "../../global";
 import { useState, useEffect, useContext } from "react";
 import { PreferencesContext } from "../../Context/Preferences";
 import * as Speech from 'expo-speech';
@@ -23,7 +23,7 @@ export default function TrackEndScreen({ navigation }) {
     useEffect(() => {
         if (preferences.TTS) {
             Speech.stop();
-            Speech.speak("Percurso Terminado!", { language: locale });
+            Speech.speak(localeTexts['trackfinished'], { language: locale });
         }
 
     }, []);
@@ -34,10 +34,10 @@ export default function TrackEndScreen({ navigation }) {
         <Background>
             <Container>
                 <Title>
-                    {"Percurso Terminado!"}
+                    {localeTexts['trackfinished']}
                 </Title>
                 <SubTitle>
-                    {"Oque achou?"}
+                    {localeTexts['whatdiduthink']}
                 </SubTitle>
                 <Stars>
                     {
@@ -59,7 +59,7 @@ export default function TrackEndScreen({ navigation }) {
                     }
                 </Stars>
                 <Button
-                    title={'Enviar'}
+                    title={localeTexts['send']}
                     titleStyle={{
                         color: color.onPrimaryContainer
                     }}

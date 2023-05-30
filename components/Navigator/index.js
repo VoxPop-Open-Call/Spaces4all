@@ -11,6 +11,7 @@ import SideMenu from '../SideMenu';
 import HomeScreen from '../HomeScreen';
 import TrackScreen from '../TrackScreen';
 import TrackEndScreen from '../TrackEndScreen';
+import { localeTexts } from '../../global';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -43,7 +44,7 @@ function SideNavigator() {
                 component={HomeScreen}
                 options={{
                     drawerIcon: () => <Icon name="home" type="MaterialIcons" color={color.onBackground} />,
-                    title: "Início",
+                    title: localeTexts['home'],
 
                 }}
             />
@@ -52,7 +53,7 @@ function SideNavigator() {
                 component={Test}
                 options={{
                     drawerIcon: () => <Icon name="settings" type="Feather" color={color.onBackground} />,
-                    title: "Configurações"
+                    title: localeTexts["settings"]
                 }}
             />
             <Drawer.Screen
@@ -60,7 +61,7 @@ function SideNavigator() {
                 component={Test}
                 options={{
                     drawerIcon: () => <Icon name="feedback" type="MaterialIcons" color={color.onBackground} />,
-                    title: "Feedback"
+                    title: localeTexts['feedback']
                 }}
             />
 
@@ -89,14 +90,14 @@ function StackNavigator() {
                     name="Location"
                     component={LocationScreen}
                     options={{
-                        title: "Local"
+                        title: localeTexts["local"]
                     }}
                 />
                 <Stack.Screen
                     name="Track"
                     component={TrackScreen}
                     options={{
-                        title: "Percurso",
+                        title: localeTexts['track'],
                         headerShown: false
                     }}
                 />

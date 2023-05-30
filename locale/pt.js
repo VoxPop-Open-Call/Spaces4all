@@ -1,0 +1,21 @@
+const pt = {'home': 'Início',
+'settings': 'Configurações',
+'feedback': 'Avaliação',
+'location': 'Localização',
+'track': 'Percurso',
+'allowlocation': 'A App precisa da vossa localização para funcionar, pedimos que active a Localização por GPS e permita a App nas configurações.',
+'option': 'Opções',
+'description': 'Descrição',
+'open24hours': 'Aberto 24 horas',
+'interess': 'Pontos de Interesse',
+'fromdistance': 'de distância',
+'trackfinished': 'Percurso Terminado!',
+'whatdiduthink': 'O que achou?',
+'send': 'Enviar',
+'sure': 'Tem certeza?',
+'leaving': 'Caso saia agora terá de recomeçar o percurso do início.',
+'cancel': 'Cancelar',
+'exit': 'Sair',
+'local': 'Local'}
+
+export default pt

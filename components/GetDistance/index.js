@@ -1,6 +1,6 @@
 import { useEffect, useContext, useCallback } from 'react';
 import { Text, ActivityIndicator } from 'react-native';
-import { color } from '../../global';
+import { color, localeTexts } from '../../global';
 import { LocationContext } from '../../Context/Location';
 import { useState } from 'react';
 import axios from 'axios';
@@ -26,7 +26,7 @@ const GetDistance = (props) => {
             });
     });
 
-    return (<Text>{userDistance === null || userDistance === undefined ? <ActivityIndicator color={color.primary} /> : userDistance.text + " de distancia."}</Text>);
+    return (<Text>{userDistance === null || userDistance === undefined ? <ActivityIndicator color={color.primary} /> : userDistance.text + localeTexts['fromdistance']}</Text>);
 }
 
 export { GetDistance };
