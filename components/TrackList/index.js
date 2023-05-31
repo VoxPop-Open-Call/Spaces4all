@@ -1,8 +1,8 @@
-import { Container, Item, PlayButton, Body, InfoRow, Info, Title, Label } from './styledTrackList'
+import { Container, Item, PlayButton, Buttons, Body, InfoRow, Info, Title, Label } from './styledTrackList'
 import { Icon } from '@rneui/base'
 import { color } from '../../global'
+import { Linking } from 'react-native'
 export default function TrackList(props) {
-
     return (
         <Container>
             {props.tracks.map((track, i) =>
@@ -20,14 +20,26 @@ export default function TrackList(props) {
                             </Info>
                         </InfoRow>
                     </Body>
-                    <PlayButton
-                        onPress={() => props.navigation.navigate('Track', track)}
-                        disabled={props.userDistance === null ? true : props.userDistance.value > 1000}
-                        activeOpacity='0.9'
-                        underlayColor='#222222'
-                    >
-                        <Icon type="antdesign" name="caretright" color={color.onPrimary} size={18}></Icon>
-                    </PlayButton>
+                    <Buttons>
+                        <PlayButton
+                            onPress={() => Linking.openURL(props.googleMaps)}
+                            disabled={props.userDistance === null ? true : props.userDistance.value <= 1000}
+                            activeOpacity='0.9'
+                            underlayColor='#222222'
+                        >
+                            <Icon type="material-community" name="map-search" color={color.onPrimary} size={18}></Icon>
+                        </PlayButton>
+                        <PlayButton
+                            onPress={() => props.navigation.navigate('Track', track)}
+                            disabled={props.userDistance === null ? true : props.userDistance.value > 1000}
+                            activeOpacity='0.9'
+                            underlayColor='#222222'
+                        >
+                            <Icon type="antdesign" name="caretright" color={color.onPrimary} size={18}></Icon>
+
+                        </PlayButton>
+                    </Buttons>
+
                 </Item>
             )}
         </Container>

@@ -47,14 +47,16 @@ function SideNavigator() {
                     title: localeTexts['home'],
 
                 }}
+
             />
-            <Drawer.Screen
+            {/* <Drawer.Screen
                 name="Config"
                 component={Test}
                 options={{
                     drawerIcon: () => <Icon name="settings" type="Feather" color={color.onBackground} />,
                     title: localeTexts["settings"]
                 }}
+                
             />
             <Drawer.Screen
                 name="Feedback"
@@ -63,7 +65,7 @@ function SideNavigator() {
                     drawerIcon: () => <Icon name="feedback" type="MaterialIcons" color={color.onBackground} />,
                     title: localeTexts['feedback']
                 }}
-            />
+            /> */}
 
         </Drawer.Navigator>
     );

@@ -7,7 +7,6 @@ import { GetDistance } from '../GetDistance';
 
 const Card = ({ name, image, latitude, longitude, openingTime, closingTime, trackCount, navigation, location }) => {
 
-
     return (
         <StyledCard onPress={() => navigation.navigate('Location', { location: location })}>
             <Image

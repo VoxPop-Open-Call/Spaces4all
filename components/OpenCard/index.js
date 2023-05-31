@@ -22,7 +22,7 @@ export default function OpenCard(props) {
 
                 <CardRow>
                     <Icon type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                    <Info>{props.userDistance === null || props.userDistance === undefined ? <ActivityIndicator color={color.primary} /> : props.userDistance.text + localeTexts['fromdistance']}</Info>
+                    <Info>{props.userDistance === null || props.userDistance === undefined ? <ActivityIndicator color={color.primary} /> : props.userDistance.text + localeTexts['fromDistance']}</Info>
                 </CardRow>
                 <CardRow>
                     <CardInfo>

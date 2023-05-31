@@ -7,7 +7,8 @@ const pt = {
         latitude: 38.728521878830115,
         longitude: -9.152677437697626,
         openingTime: "00:00",
-        closingTime: "00:00"
+        closingTime: "00:00",
+        googleMaps: "https://goo.gl/maps/DNYXgajWqBXdMnVD9"
     },
     body: [
         {
@@ -199,7 +200,9 @@ const en = {
         latitude: 38.728521878830115,
         longitude: -9.152677437697626,
         openingTime: "00:00",
-        closingTime: "00:00"
+        closingTime: "00:00",
+        googleMaps: "https://goo.gl/maps/DNYXgajWqBXdMnVD9"
+
     },
     body: [
         {
@@ -207,7 +210,7 @@ const en = {
             data: ["Eduardo VII Park (Portuguese: Parque Eduardo VII) is a public park in Lisbon, Portugal. The park occupies an area of 26 hectares (64 acres) to the north of Avenida da Liberdade and Marquis of Pombal Square in Lisbon's city center."]
         },
         {
-            title: "Intrest points",
+            title: "Points of interest",
             data: [
                 "Statues and Monuments",
                 "Lakes and Fountains",

@@ -23,7 +23,7 @@ export default function TrackEndScreen({ navigation }) {
     useEffect(() => {
         if (preferences.TTS) {
             Speech.stop();
-            Speech.speak(localeTexts['trackfinished'], { language: locale });
+            Speech.speak(localeTexts['trackFinished'], { language: locale });
         }
 
     }, []);
@@ -34,10 +34,10 @@ export default function TrackEndScreen({ navigation }) {
         <Background>
             <Container>
                 <Title>
-                    {localeTexts['trackfinished']}
+                    {localeTexts['trackFinished']}
                 </Title>
                 <SubTitle>
-                    {localeTexts['whatdiduthink']}
+                    {localeTexts['whatDidYouThink']}
                 </SubTitle>
                 <Stars>
                     {

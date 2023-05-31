@@ -1,10 +1,8 @@
-import { useIsFocused } from "@react-navigation/native";
 import { data } from "../../data";
 import { Container } from "./styledHomeScreen";
 import { Card } from "../Card";
-import { useState, useEffect, useCallback, useContext } from 'react';
+import { useState, useCallback, useContext } from 'react';
 import { RefreshControl } from 'react-native';
-import { LocationContext } from '../../Context/Location';
 
 
 export default function HomeScreen({ navigation, route }) {
@@ -16,19 +14,6 @@ export default function HomeScreen({ navigation, route }) {
             setRefreshing(false);
         }, 1000);
     }, []);
-
-    //Location
-
-    const locationContext = useContext(LocationContext);
-    const isFocused = useIsFocused();
-
-    useEffect(() => {
-        if (locationContext.userLocation === null) {
-            locationContext.getLocation()
-        }
-    }, [refreshing, isFocused]);
-
-    // Location Updates whenever the user refreshed or changes tabs
 
     return (
         <Container refreshControl={
@@ -46,7 +31,6 @@ export default function HomeScreen({ navigation, route }) {
                     trackCount={Object.keys(location.tracks).length}
                     location={location}
                     navigation={navigation}
-                    userLocation={locationContext.userLocation}
                 />
             ))}
         </Container>)

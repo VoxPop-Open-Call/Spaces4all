@@ -44,6 +44,12 @@ border-radius: 64px;
 height: 47px;
 width: 47px;
 `
+const Buttons = styled(View)`
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 8px;
+`
 const Title = styled(Text)`
 font-size: 16px;
 font-weight: 700;
@@ -54,4 +60,4 @@ font-size: 13px;
 color: ${color.onPrimaryContainer};
 `
 
-export { Container, Item, PlayButton, Body, InfoRow, Info, Title, Label }
+export { Container, Item, PlayButton, Buttons, Body, InfoRow, Info, Title, Label }

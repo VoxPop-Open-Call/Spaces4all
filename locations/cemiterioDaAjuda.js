@@ -8,6 +8,7 @@ const pt = {
         longitude: -9.203634238899113,
         openingTime: "09:00",
         closingTime: "18:00",
+        googleMaps: 'https://goo.gl/maps/7iBXoy59quzVd4DR7',
     },
     body: [
         {
@@ -15,7 +16,7 @@ const pt = {
             data: ["O Cemitério da Ajuda é um cemitério da freguesia da Ajuda, em Lisboa. Construído em 1787 por Pina Manique, a mando da rainha D. Maria I, seria para servir os criados da Casa Real e os pobres das freguesias da Ajuda e Santa Maria de Belém. Em 1835 passa a ser propriedade pública através de decreto-lei, que obrigava a existência de cemitérios públicos. Em 1849 passa para tutela municipal, a mando da rainha D. Maria II, ficando circunscrito à população das freguesias da Ajuda, Santa Maria de Belém e por vezes a freguesias vizinhas. Como os restantes cemitérios da capital, dispõe de numerosas sepulturas temporárias e perpétuas, jazigos particulares e municipais e ossários. "]
         },
         {
-            title: "Pontos de Interesse",
+            title: "Pontos de Intereste",
             data: [
                 "Capela",
                 "Sepulturas"
@@ -132,6 +133,8 @@ const en = {
         longitude: -9.203634238899113,
         openingTime: "09:00",
         closingTime: "18:00",
+        googleMaps: 'https://goo.gl/maps/7iBXoy59quzVd4DR7',
+
     },
     body: [
         {

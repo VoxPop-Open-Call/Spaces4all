@@ -64,19 +64,12 @@ export default function TrackScreen({ navigation, route }) {
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     });
-    const [userLocation, setUserLocation] = useState(locationContext.userLocation);
+    const [userLocation, setUserLocation] = useState(locationContext.userLocation.coords);
     const [distance, setDistance] = useState(0);
     const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
     const [currentCorner, setCurrentCorner] = useState(0);
 
-    // attempt to set initial gps location
-    useEffect(() => {
-        locationContext.getLocation();
-        if (locationContext.errorMsg !== null) {
-            navigation.navigate('TrackEndScreen')
-        }
-        setUserLocation(locationContext.userLocation.coords);
-    }, []);
+
 
     // detect proximity to current checkpoint 
     useEffect(() => {
@@ -99,11 +92,18 @@ export default function TrackScreen({ navigation, route }) {
 
     // detect proximity to current corner 
     useEffect(() => {
-        if (currentCheckpoint === 0 || currentCorner.length === currentCorner + 1) { // Checks if the course has begun or is near the end
+        // Checks if the course has begun or is near the end
+
+        if (currentCheckpoint === 0) {
             return;
         }
+        if (corners.length === currentCorner + 1) {
+            navigation.navigate('TrackEndScreen')
+            return;
+        }
+
         let currentDistance = getDistance(userLocation, corners[currentCorner + 1]); // Checks distance until the next corner
-        if (currentDistance < 25) {
+        if (currentDistance < 20) {
             setCurrentCorner(currentCorner + 1); // corner reached
         }
         if (currentDistance > 75) {  // corner too far, checks for the nearest corner
@@ -186,7 +186,7 @@ export default function TrackScreen({ navigation, route }) {
                         destination={checkpoints[currentCheckpoint]}
                         apikey={REACT_APP_API_KEY}
                         mode={'WALKING'}
-                        strokeWidth={3}
+                        strokeWidth={4}
                         strokeColor={color.primary}
                         precision="high"
                         onReady={(ready) => {
@@ -199,7 +199,7 @@ export default function TrackScreen({ navigation, route }) {
                     <Path // Using manual directions
 
                         coordinates={corners.slice(currentCorner)}
-                        strokeWidth={3}
+                        strokeWidth={4}
                         strokeColor={color.primary}
                     />
                 }
