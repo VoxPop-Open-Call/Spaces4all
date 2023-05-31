@@ -16,21 +16,22 @@ export default function OpenCard(props) {
                 }}
                 source={{ uri: header.image }}
                 PlaceholderContent={<ActivityIndicator />}
+                accessibilityLabel={header.imageLabel}
             />
             <CardBody>
                 <Title>{header.name}</Title>
 
                 <CardRow>
-                    <Icon type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                    <Icon accessibilityRole="none" accessibilityLabel={localeTexts["ariaIconDistance"]} type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
                     <Info>{props.userDistance === null || props.userDistance === undefined ? <ActivityIndicator color={color.primary} /> : props.userDistance.text + localeTexts['fromDistance']}</Info>
                 </CardRow>
                 <CardRow>
                     <CardInfo>
-                        <Icon type="material" name="map" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                        <Icon accessibilityRole="none" accessibilityLabel={localeTexts["ariaIconTrackCount"]} type="material" name="map" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
                         <Info >{props.tracksLength}</Info>
                     </CardInfo>
                     <CardInfo>
-                        <Icon type="material" name="schedule" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                        <Icon accessibilityRole="none" accessibilityLabel={localeTexts["ariaIconOpeningTime"]} type="material" name="schedule" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
                         <Info >{header.openingTime === header.closingTime ? localeTexts['open24hours'] : header.openingTime + " - " + header.closingTime}</Info>
                     </CardInfo>
                 </CardRow>

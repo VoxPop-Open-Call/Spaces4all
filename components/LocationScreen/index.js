@@ -52,7 +52,7 @@ export default function LocationScreen({ navigation, route }) {
                         {localeTexts['moreInfo']}
                     </Label></ListItem.Title></ListItem.Content>
                 }
-                onPress={() => { setExpanded(!expanded); }}            >
+                onPress={() => { setExpanded(!expanded); }}>
                 <ListItem containerStyle={{ backgroundColor: color.primaryContainer, flexDirection: 'column' }}>
                     {body.map((content, i) =>
                         <ListItem.Content key={i}>
