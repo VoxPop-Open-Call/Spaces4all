@@ -1,21 +1,28 @@
 {
-    "plugins": [
-        "expo-localization"
-    ],
-    "expo": {
-        "ios": {
-            "config": {
-                "usesNonExemptEncryption": false
-            },
-            "infoPlist": {
-                "NSLocationWhenInUseUsageDescription": "This app uses the users location for in app map usage and distance calculation"
-            }
-        },
-        "android": {
-            "permissions": [
-                "android.permission.ACCESS_COARSE_LOCATION",
-                "android.permission.ACCESS_FINE_LOCATION"
-            ]
-        }
+  "plugins": [
+    "expo-localization"
+  ],
+  "expo": {
+    "ios": {
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses the users location for in app map usage and distance calculation"
+      }
+    },
+    "android": {
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.williamazen.spaces4all",
+      "android.config.googleMaps.apiKey": "AIzaSyAmNiyhMsjn4n1J8uhWs1xLPpazhpp5CFQ"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "89140689-17c6-4615-8213-dad0864906fd"
+      }
     }
+  }
 }

@@ -8,8 +8,7 @@ import { REACT_APP_API_KEY } from '@env';
 import { Icon } from "@rneui/base";
 import InfoBar from "../InfoBar";
 import { TTSButton } from "../TTSButton";
-
-// On deploy steps on https://docs.expo.dev/versions/latest/sdk/map-view/ must be taken
+import { PROVIDER_GOOGLE } from "react-native-maps"
 
 
 function getDistance(origin, destination) {
@@ -149,6 +148,7 @@ export default function TrackScreen({ navigation, route }) {
             </Header>
 
             <Map
+                provider={PROVIDER_GOOGLE}
                 accessibilityElementsHidden={true}
                 importantForAccessibility="no-hide-descendants"
                 followsUserLocation

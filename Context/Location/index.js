@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
 import { Alert, Linking } from 'react-native';
 import { REACT_APP_API_KEY } from '@env';
-import axios from 'axios';
 import { localeTexts } from '../../global';
 
 const LocationContext = createContext(undefined)
