@@ -13,16 +13,21 @@
     },
     "android": {
       "permissions": [
-        "android.permission.ACCESS_COARSE_LOCATION",
-        "android.permission.ACCESS_FINE_LOCATION"
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
       ],
       "package": "com.williamazen.spaces4all",
-      "android.config.googleMaps.apiKey": "AIzaSyAmNiyhMsjn4n1J8uhWs1xLPpazhpp5CFQ"
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAmNiyhMsjn4n1J8uhWs1xLPpazhpp5CFQ"
+        }
+      }
     },
     "extra": {
       "eas": {
         "projectId": "89140689-17c6-4615-8213-dad0864906fd"
       }
-    }
+    },
+    "owner": "williamazen"
   }
 }
