@@ -29,7 +29,7 @@ const Card = ({ name, image, imageLabel, latitude, longitude, openingTime, closi
 
                 <CardRow>
                     <Icon accessibilityRole="none" accessibilityLabel={localeTexts["ariaIconDistance"]} type="material" name="location-pin" size={13} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                    <Info><GetDistance latitude={latitude} longitude={longitude} /></Info>
+                    <GetDistance latitude={latitude} longitude={longitude} />
                 </CardRow>
                 <CardRow>
                     <CardInfo>

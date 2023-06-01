@@ -1,8 +1,9 @@
 import { useEffect, useContext, useCallback } from 'react';
-import { Text, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { color, localeTexts } from '../../global';
 import { LocationContext } from '../../Context/Location';
 import { useState } from 'react';
+import { Info } from './styledGetDistance';
 
 
 function GetDistance(props) {
@@ -18,7 +19,7 @@ function GetDistance(props) {
 
     }, [locationContext.userLocation]);
 
-    return (<Text>{userDistance === null || userDistance === undefined || userDistance === NaN ? <ActivityIndicator color={color.primary} /> : userDistance.text + localeTexts['fromDistance']}</Text>);
+    return (<Info>{userDistance === null || userDistance === undefined || userDistance === NaN ? <ActivityIndicator color={color.primary} /> : userDistance.text + localeTexts['fromDistance']}</Info>);
 }
 
 export { GetDistance };

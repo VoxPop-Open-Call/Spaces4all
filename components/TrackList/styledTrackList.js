@@ -14,7 +14,7 @@ const Item = styled(View)`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-padding: 8px 16px 8px 32px;
+padding: 8px 16px 8px 24px;
 
 `
 const Body = styled(View)`
@@ -26,13 +26,11 @@ const InfoRow = styled(View)`
 display: flex;
 flex-direction: row;
 align-items: center;
-gap: 8px;
 `
 const Info = styled(View)`
 display: flex;
 flex-direction: row;
 align-items: center;
-gap: 4px;
 `
 const PlayButton = styled(TouchableHighlight)`
 display: flex;
@@ -43,12 +41,12 @@ background-color:${(props) => props.disabled ? '#999999' : color.primary};
 border-radius: 64px;
 height: 47px;
 width: 47px;
+margin-left: 8px;
 `
 const Buttons = styled(View)`
 display: flex;
 flex-direction: row;
 align-items: center;
-gap: 8px;
 `
 const Title = styled(Text)`
 font-size: 16px;
@@ -58,6 +56,7 @@ color: ${color.onPrimaryContainer};
 const Label = styled(Text)`
 font-size: 13px;
 color: ${color.onPrimaryContainer};
+margin-right: 4px;
 `
 
 export { Container, Item, PlayButton, Buttons, Body, InfoRow, Info, Title, Label }
