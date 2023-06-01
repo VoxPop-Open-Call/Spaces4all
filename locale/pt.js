@@ -2,7 +2,7 @@ const pt = {
     'home': 'Início',
     'settings': 'Configurações',
     'feedback': 'Avaliação',
-    'location': 'Localização',
+    'gpsLocation': 'Localização',
     'track': 'Percurso',
     'allowLocation': 'A App precisa da vossa localização para funcionar, pedimos que active a Localização por GPS e permita a App nas configurações.',
     'option': 'Opções',

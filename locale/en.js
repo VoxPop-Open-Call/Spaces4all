@@ -2,7 +2,7 @@ const en = {
     'home': 'Home',
     'settings': 'Settings',
     'feedback': 'Feedback',
-    'location': 'Location',
+    'gpsLocation': 'Location',
     'track': 'Track',
     'allowLocation': 'Space 4 All requires your gps location for work properly, please allow location usage on your settings',
     'option': 'Options',

@@ -46,7 +46,7 @@ function LocationProvider({ children }) {
         if (status !== 'granted') {
             setErrorMsg('Permission to access location was denied');
             Alert.alert(
-                localeTexts['location'],
+                localeTexts['gpsLocation'],
                 localeTexts['allowLocation'],
                 [
                     {
