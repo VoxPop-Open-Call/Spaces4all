@@ -17,8 +17,22 @@ const en = {
     'leaving': 'If you leave now, you will have to start over from the beginning.',
     'cancel': 'Cancel',
     'exit': 'Exit',
-    'local': 'Local',
-    'moreInfo': 'More Info'
+    'location': 'Location',
+    'moreInfo': 'More Info',
+    'ariaCard': 'Activate to know more about this location',
+    'ariaIconDistance': 'Distance',
+    'ariaIconTrackCount': 'Number of tracks in this location',
+    'ariaIconOpeningTime': 'Opening and closing time',
+    'ariaIconTime': 'Track estimated duration',
+    'ariaIconCheckpointNumber': 'Amount of interest points in this track',
+    'ariaButtonGoogleMaps': 'You are too far from this location, please activate this button to be sent to google maps',
+    'ariaButtonBeginTrack': 'Activate to select this track and start navigation',
+    'ariaButtonTTS': 'Activate to turn on or off text-to-speech',
+    'ariaLabelDistance': 'Away from next checkpoint',
+    'ariaButtonClose': 'Exit Track',
+    'ariaIconCheckpoint': 'Previous Checkpoint',
+    'ariaButtonExpand': 'Expand or hide for more info about the Previous checkpoint'
+
 }
 
 export default en

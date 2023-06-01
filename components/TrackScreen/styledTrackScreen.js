@@ -28,8 +28,6 @@ const Header = styled(View)`
     align-items: center;
     padding-top: ${StatusBar.currentHeight + "px"};
     padding-bottom: 8px;
-    elevation: 5;
-
 `
 const Distance = styled(Text)`
     font-size: 22px;

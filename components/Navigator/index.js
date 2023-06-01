@@ -92,7 +92,7 @@ function StackNavigator() {
                     name="Location"
                     component={LocationScreen}
                     options={{
-                        title: localeTexts["local"]
+                        title: localeTexts["location"]
                     }}
                 />
                 <Stack.Screen

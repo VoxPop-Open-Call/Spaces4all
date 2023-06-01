@@ -1,4 +1,4 @@
-import { Wrapper, Header, Title, Line, Body, Description } from "./styledInfoBar";
+import { Wrapper, Header, Title, Line, Body, Description, Label } from "./styledInfoBar";
 import { Icon } from "@rneui/base";
 import { color, locale } from "../../global";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import { useState, useContext, useRef } from "react";
 import { PreferencesContext } from "../../Context/Preferences";
 import { Animated } from "react-native";
 import { TouchableWithoutFeedback } from "react-native"
-import { dimensions } from "../../global";
+import { dimensions, localeTexts } from "../../global";
 
 export default function InfoBar(props) {
     // TTS
@@ -61,23 +61,28 @@ export default function InfoBar(props) {
     return (
         <Wrapper style={animStyle} >
             <>
-                <TouchableWithoutFeedback onPress={() => { setIsOpen(!isOpen) }} >
-                    <Header style={{
-                        shadowColor: "#000",
-                        shadowOffset: {
-                            width: 0,
-                            height: 5,
-                        },
-                        shadowOpacity: 0.34,
-                        shadowRadius: 6.27,
-                        elevation: 10
-                    }}
+                <TouchableWithoutFeedback onPress={() => { setIsOpen(!isOpen) }} accessibilityRole="button" accessibilityHint={localeTexts["ariaButtonExpand"]} >
+                    <Header
+                        accessible={true}
+                        style={{
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 5,
+                            },
+                            shadowOpacity: 0.34,
+                            shadowRadius: 6.27,
+                            elevation: 10
+                        }}
                     >
-                        <Line />
-                        <Title>
-                            <Icon type="material" name="location-pin" size={15} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
-                            {checkpoint.title}
-                        </Title>
+                        <Line accessibilityRole="none" />
+                        <Label>
+                            <Icon accessibilityRole="none" accessibilityLabel={localeTexts["ariaIconCheckpoint"]} type="material" name="location-pin" size={15} style={{ marginRight: 3 }} color={color.onPrimaryContainer} />
+                            <Title accessible={true} accessibilityRole="none">
+                                {checkpoint.title}
+                            </Title>
+                        </Label>
+
                     </Header>
                 </TouchableWithoutFeedback>
                 <Body>

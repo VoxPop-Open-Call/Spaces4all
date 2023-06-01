@@ -125,7 +125,10 @@ export default function TrackScreen({ navigation, route }) {
     }, [distance]);
 
     return (
-        <Container>
+        <Container
+            accessible={false}
+            accessibilityRole="none"
+        >
 
             <Header style={{
                 shadowColor: "#000",
@@ -135,16 +138,19 @@ export default function TrackScreen({ navigation, route }) {
                 },
                 shadowOpacity: 0.25,
                 shadowRadius: 3.84,
-
                 elevation: 5,
-            }}>
-                <Icon type="Io" name="close" size={48} color={color.onPrimaryContainer} onPress={() => navigation.goBack()} />
-                <Distance>
+            }}
+                accessible={true}
+            >
+                <Icon accessibilityRole="button" accessibilityHint={localeTexts["ariaButtonClose"]} type="Io" name="close" size={48} color={color.onPrimaryContainer} onPress={() => navigation.goBack()} />
+                <Distance accessibilityRole="none" accessibilityHint={localeTexts["ariaLabelDistance"]}>
                     {distance >= 1000 ? (distance / 1000) + ' km' : Math.round(distance) + ' m'}
                 </Distance>
             </Header>
 
             <Map
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
                 followsUserLocation
                 initialRegion={region}
                 showsUserLocation
@@ -161,6 +167,9 @@ export default function TrackScreen({ navigation, route }) {
                         }
                     }
                 }
+                style={{
+                    zIndex: 0
+                }}
             >
                 <Checkpoint
                     coordinate={checkpoints[currentCheckpoint]}
@@ -193,6 +202,7 @@ export default function TrackScreen({ navigation, route }) {
                             setDistance(ready.distance * 1000); // Setting distance if the user is outside the track
                         }}
                         resetOnChange={false}
+                        s
                     />
                     :
 
