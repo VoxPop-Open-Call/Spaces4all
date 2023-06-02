@@ -4,11 +4,22 @@
   },
   "build": {
     "development": {
+      "android": {
+        "buildType": "apk"
+      },
       "developmentClient": true,
-      "distribution": "internal"
+      "env": {
+        "REACT_APP_API_KEY": "AIzaSyAmNiyhMsjn4n1J8uhWs1xLPpazhpp5CFQ"
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "android": {
+        "buildType": "apk"
+      },
+      "distribution": "internal",
+      "env": {
+        "REACT_APP_API_KEY": "AIzaSyAmNiyhMsjn4n1J8uhWs1xLPpazhpp5CFQ"
+      }
     },
     "production": {}
   },

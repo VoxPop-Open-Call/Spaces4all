@@ -9,7 +9,7 @@ const pt = {
     'description': 'Descrição',
     'open24hours': 'Aberto 24 horas',
     'Interest': 'Pontos de Intereste',
-    'fromDistance': 'de distância',
+    'fromDistance': ' de distância',
     'trackFinished': 'Percurso Terminado!',
     'whatDidYouThink': 'O que achou?',
     'send': 'Enviar',
