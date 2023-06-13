@@ -3,7 +3,7 @@ import { locale } from "../global"
 const pt = {
     header: {
         name: "Jardim Mário Soares",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Jardim_do_Campo_Grande.jpg/1920px-Jardim_do_Campo_Grande.jpg",
+        image: "https://i.ibb.co/X7Sbkgg/jardim-Do-Campo-Grande.jpg",
         imageLabel: "Imagem de um lago com barcos",
         latitude: 38.75654075079262,
         longitude: -9.15331729864124,
@@ -305,7 +305,7 @@ const pt = {
 const en = {
     header: {
         name: "Mario Soares Garden",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Jardim_do_Campo_Grande.jpg/1920px-Jardim_do_Campo_Grande.jpg",
+        image: "https://i.ibb.co/X7Sbkgg/jardim-Do-Campo-Grande.jpg",
         imageLabel: "Image of a lake with small boats",
         latitude: 38.75654075079262,
         longitude: -9.15331729864124,

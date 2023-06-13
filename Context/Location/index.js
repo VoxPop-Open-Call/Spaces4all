@@ -107,16 +107,25 @@ function LocationProvider({ children }) {
 
 
     // Periodically update location 
-
+    const [updateLocation, setUpdateLocation] = useState(true);
     useEffect(() => {
+        console.log(updateLocation)
+        if (!updateLocation) {
+            return
+        }
         if (userLocation === null) {
             getLocation();
         }
         const interval = setInterval(() => {
             getLocation();
+            console.log("reload");
         }, 3000);
         return () => clearInterval(interval);
-    }, []);
+    }, [updateLocation]);
+
+    function toggleLocationUpdate() {
+        setUpdateLocation(!updateLocation)
+    }
 
 
     return (
@@ -126,7 +135,9 @@ function LocationProvider({ children }) {
                 userLocation: userLocation,
                 getDistance: getDistance,
                 userDistance: userDistance,
-                errorMsg: errorMsg
+                errorMsg: errorMsg,
+                toggleLocationUpdate: toggleLocationUpdate,
+                updateLocation: updateLocation
             }
         }>
             {children}

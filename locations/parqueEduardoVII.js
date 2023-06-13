@@ -3,7 +3,7 @@ import { locale } from '../global'
 const pt = {
     header: {
         name: "Parque Eduardo VII",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lisboa_April_2014-1.jpg/1200px-Lisboa_April_2014-1.jpg",
+        image: "https://i.ibb.co/qd5NDK1/parque-Eduardo-VII.jpg",
         imageLabel: "Imagem do gramado central do parque",
         latitude: 38.728521878830115,
         longitude: -9.152677437697626,
@@ -96,7 +96,7 @@ const pt = {
                     title: "Monumento 25 de abril (Topo do Miradouro)",
                     latitude: 38.7303721,
                     longitude: -9.1544515,
-                    description: "Ladeado por 2 conjuntos de 2 obeliscos de inspiração autoritária do projeto original do Parque. O monumento ao 25 de Abril (onde se vê, nomeadamente, um cravo vermelho) foi inaugurado em 1997, e é da autoria de João Cutileiro."
+                    description: "Ladeado por 2 conjuntos de 2 obeliscos de inspiração autoritária do projeto original do Parque. O monumento ao 25 de Abril (onde se vê, nomeadamente, um cravo vermelho) foi inaugurado em 1997, e é da autoria de João Cutileiro."
                 },
                 {
                     title: "Fim",
@@ -284,7 +284,7 @@ const en = {
                     title: "25th of April Monument (Top of the Viewpoint)",
                     latitude: 38.7303721,
                     longitude: -9.1544515,
-                    description: "Flanked by 2 sets of 2 obelisks of authoritarian inspiration from the Park's original project. The monument to the 25th of April (where you can see, namely, a red carnation) was inaugurated in 1997, and is the authorship of João Cutileiro."
+                    description: "Flanked by 2 sets of 2 obelisks of authoritarian inspiration from the Park's original project. The monument to the 25th of April (where you can see, namely, a red carnation) was inaugurated in 1997, and is the authorship of João Cutileiro."
                 },
                 {
                     title: "End",

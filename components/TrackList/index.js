@@ -24,7 +24,7 @@ export default function TrackList(props) {
                         <PlayButton
                             onPress={() => Linking.openURL(props.googleMaps)}
                             disabled={props.userDistance === null ? true : props.userDistance.value <= 1000}
-                            activeOpacity='0.9'
+                            activeOpacity={0.9}
                             underlayColor='#222222'
                             accessibilityRole="button"
                             accessibilityLabel={props.userDistance === null || props.userDistance.value <= 1000 ? '' : localeTexts["ariaButtonGoogleMaps"]}
@@ -34,7 +34,7 @@ export default function TrackList(props) {
                         <PlayButton
                             onPress={() => props.navigation.navigate('Track', track)}
                             disabled={props.userDistance === null ? true : props.userDistance.value > 1000}
-                            activeOpacity='0.9'
+                            activeOpacity={0.9}
                             underlayColor='#222222'
                             accessibilityRole="button"
                             accessibilityLabel={props.userDistance === null || props.userDistance.value > 1000 ? '' : localeTexts["ariaButtonBeginTrack"]}

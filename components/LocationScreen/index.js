@@ -35,6 +35,11 @@ export default function LocationScreen({ navigation, route }) {
         setUserDistance(locationContext.getDistance(header.latitude, header.longitude))
     }, [refreshing, locationContext.userLocation]);
 
+    useEffect(() => {
+        if (!locationContext.updateLocation) {
+            locationContext.toggleLocationUpdate();
+        }
+    }, []);
 
     return (
         <ScrollView style={{ backgroundColor: "#D9CBEF" }} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>

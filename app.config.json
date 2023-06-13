@@ -3,6 +3,10 @@
     "expo-localization"
   ],
   "expo": {
+    "androidStatusBar": {
+      "backgroundColor": "#EADDFF",
+      "translucent": false
+    },
     "ios": {
       "config": {
         "usesNonExemptEncryption": false

@@ -3,7 +3,7 @@ import { locale } from '../global'
 const pt = {
     header: {
         name: "Cemitério da Ajuda",
-        image: "https://upload.wikimedia.org/wikipedia/commons/d/de/Cemit%C3%A9rio_da_Ajuda%2C_October_2012.jpg",
+        image: "https://i.ibb.co/Bw4bmQx/cemiterio-Da-Ajuda.jpg",
         imageLabel: "Imagem de lapides",
         latitude: 38.709408985473175,
         longitude: -9.203634238899113,

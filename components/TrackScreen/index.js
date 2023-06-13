@@ -44,7 +44,7 @@ export default function TrackScreen({ navigation, route }) {
                             style: 'destructive',
                             // If the user confirmed, then we dispatch the action we blocked earlier
                             // This will continue the action that had triggered the removal of the screen
-                            onPress: () => navigation.dispatch(e.data.action),
+                            onPress: () => navigation.navigate('TrackEndScreen'),
                         },
                     ]
                 );
@@ -68,19 +68,9 @@ export default function TrackScreen({ navigation, route }) {
     const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
     const [currentCorner, setCurrentCorner] = useState(0);
 
-
-
     // detect proximity to current checkpoint 
     useEffect(() => {
-        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 25) {
-            // Checkpoint reached
-            if (checkpoints.length === currentCheckpoint + 1) {
-                // It was the last checkpoint, end track
-                navigation.navigate('TrackEndScreen')
-
-                return;
-            }
-            // More checkpoints ahead, change text,
+        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 25 && checkpoints.length !== currentCheckpoint + 1) {
             setCurrentCheckpoint(currentCheckpoint + 1);
         }
     }, [distance]);
@@ -122,6 +112,14 @@ export default function TrackScreen({ navigation, route }) {
             setCurrentCorner(currentCorner + bestCheckpoint);
         }
     }, [distance]);
+
+    //turn off location updater 
+
+    useEffect(() => {
+        if (locationContext.updateLocation) {
+            locationContext.toggleLocationUpdate();
+        }
+    }, []);
 
     return (
         <Container
