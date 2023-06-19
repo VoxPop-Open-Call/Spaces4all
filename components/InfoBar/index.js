@@ -17,6 +17,15 @@ export default function InfoBar(props) {
     const corner = props.corner;
     const trackStarted = props.trackStarted;
     useEffect(() => {
+        if (preferences.TTS) {
+            Speech.speak(
+                localeTexts["ttsButton"],
+                { language: locale }
+            );
+        }
+    }, [preferences.TTS])
+
+    useEffect(() => {
         if (preferences.TTS && trackStarted) {
             Speech.stop();
             Speech.speak(
@@ -33,6 +42,7 @@ export default function InfoBar(props) {
 
     useEffect(() => {
         if (preferences.TTS && corner.direction !== "" && trackStarted) {
+            Speech.stop();
             Speech.speak(corner.direction, { language: locale });
         }
 

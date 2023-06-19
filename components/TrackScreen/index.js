@@ -60,8 +60,8 @@ export default function TrackScreen({ navigation, route }) {
     const [region, setRegion] = useState({
         latitude: checkpoints[0].latitude,
         longitude: checkpoints[0].longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitudeDelta: 0,
+        longitudeDelta: 0.0121,
     });
     const [userLocation, setUserLocation] = useState(locationContext.userLocation.coords);
     const [distance, setDistance] = useState(0);
@@ -70,7 +70,7 @@ export default function TrackScreen({ navigation, route }) {
 
     // detect proximity to current checkpoint 
     useEffect(() => {
-        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 25 && checkpoints.length !== currentCheckpoint + 1) {
+        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 15 && checkpoints.length !== currentCheckpoint + 1) {
             setCurrentCheckpoint(currentCheckpoint + 1);
         }
     }, [distance]);
@@ -78,6 +78,7 @@ export default function TrackScreen({ navigation, route }) {
     useEffect(() => {
         console.log(corners[currentCorner])
     }, [currentCorner]);
+
 
     // detect proximity to current corner 
     useEffect(() => {
@@ -92,7 +93,7 @@ export default function TrackScreen({ navigation, route }) {
         }
 
         let currentDistance = getDistance(userLocation, corners[currentCorner + 1]); // Checks distance until the next corner
-        if (currentDistance < 20) {
+        if (currentDistance < 10) {
             setCurrentCorner(currentCorner + 1); // corner reached
         }
         if (currentDistance > 75) {  // corner too far, checks for the nearest corner
@@ -121,6 +122,10 @@ export default function TrackScreen({ navigation, route }) {
         }
     }, []);
 
+    function animateToRegion() {
+        this.map.animateToRegion(region, 500);
+    }
+
     return (
         <Container
             accessible={false}
@@ -147,33 +152,43 @@ export default function TrackScreen({ navigation, route }) {
 
             <Map
                 provider={PROVIDER_GOOGLE}
+                ref={ref => this.map = ref}
                 accessibilityElementsHidden={true}
                 importantForAccessibility="no-hide-descendants"
-                followsUserLocation
+                showsUserLocation={true}
+                followsUserLocation={true}
+                showsMyLocationButton={false}
                 initialRegion={region}
-                showsUserLocation
-                minZoomLevel={16.5}
+                minZoomLevel={18.5}
                 maxZoomLevel={20}
                 loadingEnabled={true}
                 onUserLocationChange={
                     (newLocation) => {
-                        if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 15) {
-                            setUserLocation(newLocation.nativeEvent.coordinate); // Avoiding constant location updates with a movement distance threshold 
+                        if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 2) {
+                            // Avoiding constant location updates with a movement distance threshold 
+                            setRegion(
+                                {
+                                    ...region,
+                                    latitude: newLocation.nativeEvent.coordinate.latitude,
+                                    longitude: newLocation.nativeEvent.coordinate.longitude
+                                }
+                            )
+                            setUserLocation(newLocation.nativeEvent.coordinate);
+                            animateToRegion();
                         }
                         if (currentCheckpoint !== 0) {
                             setDistance(getDistance(userLocation, checkpoints[currentCheckpoint])); // Setting distance if the user is inside the track
                         }
                     }
                 }
-                style={{
-                    zIndex: 0
-                }}
+
             >
                 <Checkpoint
                     coordinate={checkpoints[currentCheckpoint]}
                     title={checkpoints[currentCheckpoint].title}
                     description={checkpoints[currentCheckpoint].description}
                     opacity={0.7}
+                    zIndex={2}
                 />
 
                 {optionalCheckpoints.map((checkpoint, i) => (
@@ -184,6 +199,7 @@ export default function TrackScreen({ navigation, route }) {
                         description={checkpoint.description}
                         pinColor={'yellow'}
                         opacity={0.7}
+                        zIndex={3}
                     />
                 ))
                 }
@@ -200,17 +216,26 @@ export default function TrackScreen({ navigation, route }) {
                             setDistance(ready.distance * 1000); // Setting distance if the user is outside the track
                         }}
                         resetOnChange={false}
-                        s
+                        zIndex={3}
                     />
                     :
+                    <Path // Using manual directions, it only displays half the track to avoid confusion
 
-                    <Path // Using manual directions
-
-                        coordinates={corners.slice(currentCorner)}
+                        coordinates={corners.slice(currentCorner).length > Math.floor(corners.length / 2) ? corners.slice(currentCorner, currentCorner + Math.floor(corners.length / 2)) : corners.slice(currentCorner)}
                         strokeWidth={4}
                         strokeColor={color.primary}
+                        zIndex={2}
                     />
+
                 }
+                <Path // path background
+
+                    coordinates={corners}
+                    strokeWidth={8}
+                    strokeColor={color.background}
+                    opacity={0.2}
+                    zIndex={1}
+                />
             </Map>
             <TTSButton />
             <InfoBar

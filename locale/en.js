@@ -31,7 +31,8 @@ const en = {
     'ariaLabelDistance': 'Away from next checkpoint',
     'ariaButtonClose': 'Exit Track',
     'ariaIconCheckpoint': 'Previous Checkpoint',
-    'ariaButtonExpand': 'Expand or hide for more info about the Previous checkpoint'
+    'ariaButtonExpand': 'Expand or hide for more info about the Previous checkpoint',
+    'ttsButton': 'Text-to-speech activated'
 
 }
 

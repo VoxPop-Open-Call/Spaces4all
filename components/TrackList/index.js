@@ -23,21 +23,21 @@ export default function TrackList(props) {
                     <Buttons>
                         <PlayButton
                             onPress={() => Linking.openURL(props.googleMaps)}
-                            disabled={props.userDistance === null ? true : props.userDistance.value <= 1000}
+                            disabled={props.userDistance === null || props.userDistance === undefined ? true : props.userDistance.value <= 1000}
                             activeOpacity={0.9}
                             underlayColor='#222222'
                             accessibilityRole="button"
-                            accessibilityLabel={props.userDistance === null || props.userDistance.value <= 1000 ? '' : localeTexts["ariaButtonGoogleMaps"]}
+                            accessibilityLabel={props.userDistance === null || props.userDistance === undefined || props.userDistance.value <= 1000 ? '' : localeTexts["ariaButtonGoogleMaps"]}
                         >
                             <Icon type="material-community" name="map-search" color={color.onPrimary} size={18}></Icon>
                         </PlayButton>
                         <PlayButton
                             onPress={() => props.navigation.navigate('Track', track)}
-                            disabled={props.userDistance === null ? true : props.userDistance.value > 1000}
+                            disabled={props.userDistance === null || props.userDistance === undefined ? true : props.userDistance.value > 1000}
                             activeOpacity={0.9}
                             underlayColor='#222222'
                             accessibilityRole="button"
-                            accessibilityLabel={props.userDistance === null || props.userDistance.value > 1000 ? '' : localeTexts["ariaButtonBeginTrack"]}
+                            accessibilityLabel={props.userDistance === null || props.userDistance === undefined || props.userDistance.value > 1000 ? '' : localeTexts["ariaButtonBeginTrack"]}
                         >
                             <Icon type="antdesign" name="caretright" color={color.onPrimary} size={18}></Icon>
 

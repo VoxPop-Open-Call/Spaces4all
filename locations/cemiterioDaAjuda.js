@@ -51,8 +51,8 @@ const pt = {
                 },
                 {
                     title: 'Gago Coutinho',
-                    latitude: 38.7099642,
-                    longitude: -9.2039546,
+                    latitude: 38.709901028,
+                    longitude: -9.2038508,
                     description: 'Gago Coutinho foi um geógrafo cartógrafo, oficial da Marinha Portuguesa, navegador e historiador. Juntamente com o aviador Sacadura Cabral, tornou-se um pioneiro da aviação ao efetuar a primeira travessia aérea do Atlântico Sul, no hidroavião Lusitânia em 1922. '
                 },
                 {
@@ -74,17 +74,18 @@ const pt = {
                     description: 'Memorial e jazido das vítimas do movimento de revolta de 14 de maio de 1915, que repôs o cumprimento da Constituição de 1911, depôs o governo do general Pimenta de Castro, substituído pela Junta Constitucional de 1915 e destituiu Manuel de Arriaga do cargo de presidente da República Portuguesa. '
                 },
                 {
-                    title: 'Américo Tomaz',
-                    latitude: 38.7087105,
-                    longitude: -9.2035577,
-                    description: 'Américo Tomaz foi um oficial da Marinha Portuguesa e político que serviu como o 13º presidente de Portugal de 1958 a 1974.'
-                },
-                {
                     title: 'Jazido de Homenagem',
                     latitude: 38.7090977,
                     longitude: -9.2033270,
                     description: 'Jazido de Homenagem ao Clube de Futebol “Os Belenenses”, onde se encontram os futebolistas Matateu e Pepe.'
                 },
+                {
+                    title: 'Américo Tomaz',
+                    latitude: 38.7087105,
+                    longitude: -9.2035577,
+                    description: 'Américo Tomaz foi um oficial da Marinha Portuguesa e político que serviu como o 13º presidente de Portugal de 1958 a 1974.'
+                },
+
                 {
                     title: 'Saida',
                     latitude: 38.7093907,
@@ -178,8 +179,8 @@ const en = {
                 },
                 {
                     title: 'Gago Coutinho',
-                    latitude: 38.7099642,
-                    longitude: -9.2039546,
+                    latitude: 38.709901028,
+                    longitude: -9.2038508,
                     description: 'Gago Coutinho was a geographer, cartographer, Portuguese Navy officer, navigator and historian. Together with the aviator Sacadura Cabral, he became an aviation pioneer when he made the first aerial crossing of the South Atlantic, in the Lusitânia hydroplane in 1922. '
                 },
                 {
@@ -201,16 +202,16 @@ const en = {
                     description: 'Memorial and tomb of the victims of the revolt of May 14, 1915, which restored compliance with the 1911 Constitution, deposed the government of General Pimenta de Castro, replaced by the Constitutional Board of 1915 and removed Manuel de Arriaga from the office of President of the Portuguese Republic. '
                 },
                 {
-                    title: 'Americo Tomaz',
-                    latitude: 38.7087105,
-                    longitude: -9.2035577,
-                    description: 'Américo Tomaz was a Portuguese naval officer and politician who served as the 13th President of Portugal from 1958 to 1974.'
-                },
-                {
                     title: 'Tier of Homage',
                     latitude: 38.7090977,
                     longitude: 9.2033270,
                     description: 'Homage to the Football Club “Os Belenenses”, where footballers Matateu and Pepe rest.'
+                },
+                {
+                    title: 'Americo Tomaz',
+                    latitude: 38.7087105,
+                    longitude: -9.2035577,
+                    description: 'Américo Tomaz was a Portuguese naval officer and politician who served as the 13th President of Portugal from 1958 to 1974.'
                 },
                 {
                     title: 'Exit',

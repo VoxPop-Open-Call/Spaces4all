@@ -20,7 +20,6 @@ const Header = styled(View)`
     display: flex;
     flex-direction: row;
     z-index: 2;
-    position: absolute;
     width: 100%;
     top: 0;
     padding: 0px 16px;

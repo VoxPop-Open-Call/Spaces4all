@@ -31,7 +31,8 @@ const pt = {
     'ariaLabelDistance': 'Até o proximo ponto de interesse',
     'ariaButtonClose': 'Fechar percurso',
     'ariaIconCheckpoint': 'Ponto de ultimo interesse',
-    'ariaButtonExpand': 'Mais informações sobre o ultimo ponto de interesse'
+    'ariaButtonExpand': 'Mais informações sobre o ultimo ponto de interesse',
+    'ttsButton': 'Leitor de texto ativado'
 
 
 }
