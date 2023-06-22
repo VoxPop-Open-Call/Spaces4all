@@ -228,14 +228,14 @@ export default function TrackScreen({ navigation, route }) {
                     />
 
                 }
-                <Path // path background
+                {/* <Path // path background
 
                     coordinates={corners}
                     strokeWidth={8}
                     strokeColor={color.background}
                     opacity={0.2}
                     zIndex={1}
-                />
+                /> */}
             </Map>
             <TTSButton />
             <InfoBar
