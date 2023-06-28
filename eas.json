@@ -9,7 +9,7 @@
       },
       "developmentClient": true,
       "env": {
-        "REACT_APP_API_KEY": "AIzaSyAmNiyhMsjn4n1J8uhWs1xLPpazhpp5CFQ"
+        "REACT_APP_API_KEY": "INSERT_API_KEY_HERE"
       }
     },
     "preview": {
@@ -18,7 +18,7 @@
       },
       "distribution": "internal",
       "env": {
-        "REACT_APP_API_KEY": "AIzaSyAmNiyhMsjn4n1J8uhWs1xLPpazhpp5CFQ"
+        "REACT_APP_API_KEY": "INSERT_API_KEY_HERE"
       }
     },
     "production": {}

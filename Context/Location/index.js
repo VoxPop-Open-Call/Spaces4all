@@ -2,7 +2,7 @@ import { createContext } from 'react'
 import { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
 import { Alert, Linking } from 'react-native';
-import { REACT_APP_API_KEY } from '@env';
+// import { REACT_APP_API_KEY } from '@env';
 import { localeTexts } from '../../global';
 
 const LocationContext = createContext(undefined)
