@@ -37,7 +37,7 @@ This application makes use of the [Google Maps API](https://developers.google.co
 	````console
 	npm install
 	 ````
-- Set all environmental variables in ./eas.json to your google maps API key.
+- Set all environmental variables in ./eas.json and ./app.config.json to your google maps API key.
 
 ## Expo Go  
 
