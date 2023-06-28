@@ -20,7 +20,6 @@ const Header = styled(View)`
     display: flex;
     flex-direction: row;
     z-index: 2;
-    position: absolute;
     width: 100%;
     top: 0;
     padding: 0px 16px;
@@ -28,8 +27,6 @@ const Header = styled(View)`
     align-items: center;
     padding-top: ${StatusBar.currentHeight + "px"};
     padding-bottom: 8px;
-    elevation: 5;
-
 `
 const Distance = styled(Text)`
     font-size: 22px;

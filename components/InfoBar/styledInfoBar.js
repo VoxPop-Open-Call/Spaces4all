@@ -50,5 +50,10 @@ const Description = styled(Text)`
         z-index: 3;
         color: ${color.onPrimaryContainer};
     `
+const Label = styled(View)`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
 
-export { Wrapper, Header, Title, Line, Body, Description }
+export { Wrapper, Header, Title, Line, Body, Description, Label }

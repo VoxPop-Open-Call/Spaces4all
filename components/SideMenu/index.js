@@ -8,7 +8,7 @@ export default function SideMenu(props) {
         <Background>
             <Container>
                 <Header>
-                    <Title>Menu</Title>
+                    <Title accessible={false}>Menu</Title>
                 </Header>
 
                 <DrawerContentScrollView {...props}>
