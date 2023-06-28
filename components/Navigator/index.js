@@ -47,7 +47,7 @@ function SideNavigator() {
 
                 }}
             />
-            <Drawer.Screen
+            {/* <Drawer.Screen
                 name="Config"
                 component={Test}
                 options={{
@@ -62,7 +62,7 @@ function SideNavigator() {
                     drawerIcon: () => <Icon name="feedback" type="MaterialIcons" color={color.onBackground} />,
                     title: "Feedback"
                 }}
-            />
+            />  */}
 
         </Drawer.Navigator>
     );
