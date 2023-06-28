@@ -48,13 +48,13 @@ Expo allows for hot reloads, this way you don't have to build constantly during 
 
   
 
-For non developer standalone .apks run
+For non developer standalone .apk files run
 
 npx eas build -p android --profile preview
 
   
 
-For developer .apks run
+For developer .apk files run
 
 ````console
 npx eas build -p android --profile development
