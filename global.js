@@ -1,5 +1,7 @@
 import { StatusBar, Dimensions } from 'react-native';
 import { getLocales } from 'expo-localization';
+import en from './locale/en'
+import pt from './locale/pt'
 
 const dimensions = {
     'width': Dimensions.get('window').width,
@@ -20,6 +22,7 @@ const color = {
 
 const rawLocale = getLocales()
 const locale = rawLocale[0].languageCode === 'pt' ? 'pt-PT' : 'en-GB'
+const localeTexts = rawLocale[0].languageCode === 'pt' ? pt : en
 
-export { color, dimensions, locale }
+export { color, dimensions, locale, localeTexts }
 
