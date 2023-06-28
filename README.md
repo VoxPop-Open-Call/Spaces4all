@@ -35,7 +35,7 @@ This application makes use of the [Google Maps API](https://developers.google.co
 - Clone the repo.
 - Install all dependencies.
 	````console
-	$ npm install
+	npm install
 	 ````
 - Set all environmental variables in ./eas.json to your google maps API key.
 
@@ -57,7 +57,7 @@ npx eas build -p android --profile preview
 For developer .apks run
 
 ````console
-$ npx eas build -p android --profile development
+npx eas build -p android --profile development
 ````
 
 ## Disclaimer 
