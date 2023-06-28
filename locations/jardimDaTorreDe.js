@@ -117,7 +117,7 @@ const pt = {
 
 const en = {
     header: {
-        name: "Garden of the Tower of Belém",
+        name: "Torre de Belém's Garden",
         image: "https://i.ibb.co/Qphy8bf/jardim-Da-Torre-De-min.jpg",
         imageLabel: "Photo of the Belém Tower in the distance",
         latitude: 38.69362642563961,

@@ -134,7 +134,7 @@ const pt = {
 
 const en = {
     header: {
-        name: "Jardim Do Principe Real",
+        name: "Principe Real Garden",
         image: "https://i.ibb.co/mF5thmk/jardim-Do-Principe-Real-min.jpg",
         imageLabel: "",
         latitude: 38.71636410853407,

@@ -264,7 +264,7 @@ const pt = {
 
 const en = {
     header: {
-        name: "Cemetery of Prazeres",
+        name: "Prazeres Cemetery",
         image: "https://i.ibb.co/Yd76Lcg/cemiterio-De-Prazeres.jpg",
         imageLabel: "Image of Graves",
         latitude: 38.714040390731455,

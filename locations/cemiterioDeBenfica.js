@@ -1,4 +1,4 @@
-import { locale } from '../global'
+import { locale } from "../global"
 
 const pt = {
     header: {
@@ -683,6 +683,6 @@ const en = {
 }
 
 
-const cemiterioDeBenfica = locale === 'pt-PT' ? pt : en
+const cemiterioDeBenfica = locale === "pt-PT" ? pt : en
 
 export { cemiterioDeBenfica }

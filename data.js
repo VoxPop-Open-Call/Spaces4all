@@ -11,14 +11,14 @@ import { jardimDaEstrela } from './locations/jardimDaEstrela.js'
 import { jardimDasAmoreiras } from './locations/jardimDasAmoreiras.js'
 import { jardimDaTorreDe } from './locations/jardimDaTorreDe.js'
 import { jardimDoPrincipeReal } from './locations/jardimDoPrincipeReal.js'
-import { jardimDoTorel } from './locations/WIP/jardimDoTorel.js'
+import { jardimDoTorel } from './locations/jardimDoTorel.js'
 import { jardimFernanadoPessa } from './locations/jardimFernanadoPessa.js'
-// import { parqueDaBelaVIsta } from './locations/WIP/parqueDaBelaVIsta.js'
+import { parqueDaBelaVIsta } from './locations/parqueDaBelaVIsta.js'
 import { parqueGonçaloRibeiro } from './locations/parqueGonçaloRibeiro.js'
 import { parqueOeste } from './locations/parqueOeste.js'
-// import { parqueQuintDasConchas } from './locations/WIP/parqueQuintDasConchas.js'
-// import { parqueRecreativoDosMoinhos } from './locations/WIP/parqueRecreativoDosMoinhos.js'
-// import { praçaDoImperioE } from './locations/WIP/praçaDoImperioE.js'
+import { parqueQuintDasConchas } from './locations/parqueQuintDasConchas.js'
+import { parqueRecreativoDosMoinhos } from './locations/parqueRecreativoDosMoinhos.js'
+import { praçaDoImperioE } from './locations/praçaDoImperioE.js'
 export const data = [
     parqueEduardoVII,
     cemiterioDaAjuda,
@@ -34,12 +34,12 @@ export const data = [
     jardimDaTorreDe,
     jardimDoTorel,
     jardimFernanadoPessa,
-    // parqueDaBelaVIsta,
+    parqueDaBelaVIsta,
     parqueGonçaloRibeiro,
     parqueOeste,
     jardimDoPrincipeReal,
-    // parqueQuintDasConchas,
-    // parqueRecreativoDosMoinhos,
-    // praçaDoImperioE
+    parqueQuintDasConchas,
+    parqueRecreativoDosMoinhos,
+    praçaDoImperioE
 ];
 

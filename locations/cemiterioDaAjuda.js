@@ -1,4 +1,4 @@
-import { locale } from '../global'
+import { locale } from "../global"
 
 const pt = {
     header: {
@@ -9,7 +9,7 @@ const pt = {
         longitude: -9.203634238899113,
         openingTime: "09:00",
         closingTime: "18:00",
-        googleMaps: 'https://goo.gl/maps/7iBXoy59quzVd4DR7',
+        googleMaps: "https://goo.gl/maps/7iBXoy59quzVd4DR7",
     },
     body: [
         {
@@ -38,59 +38,59 @@ const pt = {
             duration: "1h",
             checkpoints: [
                 {
-                    title: 'Entrada',
+                    title: "Entrada",
                     latitude: 38.7095095,
                     longitude: -9.2034383,
-                    description: 'Portão de entrada, com as estátuas Verdade, Fortaleza, Justiça e Esperança.'
+                    description: "Portão de entrada, com as estátuas Verdade, Fortaleza, Justiça e Esperança."
                 },
                 {
-                    title: 'Capela',
+                    title: "Capela",
                     latitude: 38.7093478,
                     longitude: -9.2037199,
-                    description: 'Capela adornadda com as estátuas Caridade, Humildade, Oração e Fé'
+                    description: "Capela adornadda com as estátuas Caridade, Humildade, Oração e Fé"
                 },
                 {
-                    title: 'Gago Coutinho',
+                    title: "Gago Coutinho",
                     latitude: 38.709901028,
                     longitude: -9.2038508,
-                    description: 'Gago Coutinho foi um geógrafo cartógrafo, oficial da Marinha Portuguesa, navegador e historiador. Juntamente com o aviador Sacadura Cabral, tornou-se um pioneiro da aviação ao efetuar a primeira travessia aérea do Atlântico Sul, no hidroavião Lusitânia em 1922. '
+                    description: "Gago Coutinho foi um geógrafo cartógrafo, oficial da Marinha Portuguesa, navegador e historiador. Juntamente com o aviador Sacadura Cabral, tornou-se um pioneiro da aviação ao efetuar a primeira travessia aérea do Atlântico Sul, no hidroavião Lusitânia em 1922. "
                 },
                 {
-                    title: 'Domingos Parente',
+                    title: "Domingos Parente",
                     latitude: 38.7092421,
                     longitude: -9.2041799,
-                    description: 'Domingos Parente foi um arquiteto português, tendo trabalhado nas remodelações que vários monumentos nacionais.'
+                    description: "Domingos Parente foi um arquiteto português, tendo trabalhado nas remodelações que vários monumentos nacionais."
                 },
                 {
-                    title: 'Francisco dos Santos',
+                    title: "Francisco dos Santos",
                     latitude: 38.7089868,
                     longitude: -9.2036489,
-                    description: 'Francisco dos Santos foi um escultor e pintor português.'
+                    description: "Francisco dos Santos foi um escultor e pintor português."
                 },
                 {
-                    title: 'Memorial',
+                    title: "Memorial",
                     latitude: 38.7089282,
                     longitude: -9.2035469,
-                    description: 'Memorial e jazido das vítimas do movimento de revolta de 14 de maio de 1915, que repôs o cumprimento da Constituição de 1911, depôs o governo do general Pimenta de Castro, substituído pela Junta Constitucional de 1915 e destituiu Manuel de Arriaga do cargo de presidente da República Portuguesa. '
+                    description: "Memorial e jazido das vítimas do movimento de revolta de 14 de maio de 1915, que repôs o cumprimento da Constituição de 1911, depôs o governo do general Pimenta de Castro, substituído pela Junta Constitucional de 1915 e destituiu Manuel de Arriaga do cargo de presidente da República Portuguesa. "
                 },
                 {
-                    title: 'Jazido de Homenagem',
+                    title: "Jazido de Homenagem",
                     latitude: 38.7090977,
                     longitude: -9.2033270,
-                    description: 'Jazido de Homenagem ao Clube de Futebol “Os Belenenses”, onde se encontram os futebolistas Matateu e Pepe.'
+                    description: "Jazido de Homenagem ao Clube de Futebol “Os Belenenses”, onde se encontram os futebolistas Matateu e Pepe."
                 },
                 {
-                    title: 'Américo Tomaz',
+                    title: "Américo Tomaz",
                     latitude: 38.7087105,
                     longitude: -9.2035577,
-                    description: 'Américo Tomaz foi um oficial da Marinha Portuguesa e político que serviu como o 13º presidente de Portugal de 1958 a 1974.'
+                    description: "Américo Tomaz foi um oficial da Marinha Portuguesa e político que serviu como o 13º presidente de Portugal de 1958 a 1974."
                 },
 
                 {
-                    title: 'Saida',
+                    title: "Saida",
                     latitude: 38.7093907,
                     longitude: -9.2033847,
-                    description: ''
+                    description: ""
                 }
 
             ]
@@ -136,7 +136,7 @@ const en = {
         longitude: -9.203634238899113,
         openingTime: "09:00",
         closingTime: "18:00",
-        googleMaps: 'https://goo.gl/maps/7iBXoy59quzVd4DR7',
+        googleMaps: "https://goo.gl/maps/7iBXoy59quzVd4DR7",
 
     },
     body: [
@@ -166,58 +166,58 @@ const en = {
             duration: "1h",
             checkpoints: [
                 {
-                    title: 'Gate',
+                    title: "Gate",
                     latitude: 38.7095095,
                     longitude: -9.2034383,
-                    description: 'Entrance gate, with 4 statues named Verdade, Fortaleza, Justiça e Esperança.'
+                    description: "Entrance gate, with 4 statues named Verdade, Fortaleza, Justiça e Esperança."
                 },
                 {
-                    title: 'Chapel',
+                    title: "Chapel",
                     latitude: 38.7093478,
                     longitude: -9.2037199,
-                    description: 'Chapel adorned with the 4 statues named Caridade, Humildade, Oração e Fé'
+                    description: "Chapel adorned with the 4 statues named Caridade, Humildade, Oração e Fé"
                 },
                 {
-                    title: 'Gago Coutinho',
+                    title: "Gago Coutinho",
                     latitude: 38.709901028,
                     longitude: -9.2038508,
-                    description: 'Gago Coutinho was a geographer, cartographer, Portuguese Navy officer, navigator and historian. Together with the aviator Sacadura Cabral, he became an aviation pioneer when he made the first aerial crossing of the South Atlantic, in the Lusitânia hydroplane in 1922. '
+                    description: "Gago Coutinho was a geographer, cartographer, Portuguese Navy officer, navigator and historian. Together with the aviator Sacadura Cabral, he became an aviation pioneer when he made the first aerial crossing of the South Atlantic, in the Lusitânia hydroplane in 1922. "
                 },
                 {
-                    title: 'Domingos Parente',
+                    title: "Domingos Parente",
                     latitude: 38.7092421,
                     longitude: -9.2041799,
-                    description: 'Domingos Parente was a Portuguese architect, having worked on the refurbishments of several national monuments.'
+                    description: "Domingos Parente was a Portuguese architect, having worked on the refurbishments of several national monuments."
                 },
                 {
-                    title: 'Francisco dos Santos',
+                    title: "Francisco dos Santos",
                     latitude: 38.7089868,
                     longitude: -9.2036489,
-                    description: 'Francisco dos Santos was a Portuguese sculptor and painter.'
+                    description: "Francisco dos Santos was a Portuguese sculptor and painter."
                 },
                 {
-                    title: 'Memorial',
+                    title: "Memorial",
                     latitude: 38.7089282,
                     longitude: -9.2035469,
-                    description: 'Memorial and tomb of the victims of the revolt of May 14, 1915, which restored compliance with the 1911 Constitution, deposed the government of General Pimenta de Castro, replaced by the Constitutional Board of 1915 and removed Manuel de Arriaga from the office of President of the Portuguese Republic. '
+                    description: "Memorial and tomb of the victims of the revolt of May 14, 1915, which restored compliance with the 1911 Constitution, deposed the government of General Pimenta de Castro, replaced by the Constitutional Board of 1915 and removed Manuel de Arriaga from the office of President of the Portuguese Republic. "
                 },
                 {
-                    title: 'Tier of Homage',
+                    title: "Tier of Homage",
                     latitude: 38.7090977,
                     longitude: 9.2033270,
-                    description: 'Homage to the Football Club “Os Belenenses”, where footballers Matateu and Pepe rest.'
+                    description: "Homage to the Football Club “Os Belenenses”, where footballers Matateu and Pepe rest."
                 },
                 {
-                    title: 'Americo Tomaz',
+                    title: "Americo Tomaz",
                     latitude: 38.7087105,
                     longitude: -9.2035577,
-                    description: 'Américo Tomaz was a Portuguese naval officer and politician who served as the 13th President of Portugal from 1958 to 1974.'
+                    description: "Américo Tomaz was a Portuguese naval officer and politician who served as the 13th President of Portugal from 1958 to 1974."
                 },
                 {
-                    title: 'Exit',
+                    title: "Exit",
                     latitude: 38.7093907,
                     longitude: -9.2033847,
-                    description: ''
+                    description: ""
                 }
 
             ]
@@ -254,6 +254,6 @@ const en = {
     ]
 }
 
-const cemiterioDaAjuda = locale === 'pt-PT' ? pt : en
+const cemiterioDaAjuda = locale === "pt-PT" ? pt : en
 
 export { cemiterioDaAjuda }

@@ -444,7 +444,7 @@ const pt = {
 
 const en = {
     header: {
-        name: "'Matires da Patria' field",
+        name: "Matires da Patria F ield",
         image: "https://i.ibb.co/1Myjf7F/campo-Martires-Da-Patria.jpg",
         imageLabel: "Image of a statue inside the field",
         latitude: 38.72049721764171,

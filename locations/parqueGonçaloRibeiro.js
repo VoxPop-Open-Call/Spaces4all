@@ -115,7 +115,7 @@ const pt = {
 
 const en = {
     header: {
-        name: "Parque Gonçalo Ribeiro Telles",
+        name: "Gonçalo Ribeiro Telles Park",
         image: "https://i.ibb.co/hK10fbJ/parque-Gon-alo-Ribeiro.webp",
         imageLabel: "Image of the lawn inside the park",
         latitude: 38.73793087288956,
@@ -203,13 +203,13 @@ const en = {
             ],
             optionalCheckpoints: [
                 {
-                    title: 'Spain Square',
+                    title: 'Espanha Square',
                     latitude: 38.7378478,
                     longitude: -9.1592181,
                     description: ''
                 },
                 {
-                    title: 'Teatro da Commune',
+                    title: "Commune's theater",
                     latitude: 38.7365883,
                     longitude: -9.1604841,
                     description: 'theater occupied, in 1975, by the theater group A Comuna - Teatro de Pesquisa. The space, known as the "Pink House" in Praça de Espanha, was a "German School" and had also been the "Home for Single Mothers of Mercy"'

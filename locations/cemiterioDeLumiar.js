@@ -1,4 +1,4 @@
-import { locale } from '../global'
+import { locale } from "../global"
 
 const pt = {
     header: {
@@ -139,22 +139,22 @@ const pt = {
             ],
             optionalCheckpoints: [
                 {
-                    title: 'Secretaria do Cemitério do Lumiar',
+                    title: "Secretaria do Cemitério do Lumiar",
                     latitude: 38.77325503481018,
                     longitude: -9.165028816578525,
-                    description: ''
+                    description: ""
                 },
                 {
-                    title: 'Sala de espera do Cemitério do Lumiar',
+                    title: "Sala de espera do Cemitério do Lumiar",
                     latitude: 38.773130088,
                     longitude: -9.1650193335,
-                    description: ''
+                    description: ""
                 },
                 {
-                    title: 'Maximiano Alves ',
+                    title: "Maximiano Alves ",
                     latitude: 38.77308750427511,
                     longitude: -9.166512401622008,
-                    description: 'Escultor português, concluiu o Curso de Escultura na Escola de Belas-Artes de Lisboa, em 1911, tendo sido aluno do escultor Simões de Almeida e dos pintores Luciano Freire e Ernesto Condeixa. Foi agraciado com o grau de Oficial da Ordem Militar de Santo Iago da Espada (23 de maio de 1932), pela participação na conceção e execução do Monumento aos Mortos da Grande Guerra.'
+                    description: "Escultor português, concluiu o Curso de Escultura na Escola de Belas-Artes de Lisboa, em 1911, tendo sido aluno do escultor Simões de Almeida e dos pintores Luciano Freire e Ernesto Condeixa. Foi agraciado com o grau de Oficial da Ordem Militar de Santo Iago da Espada (23 de maio de 1932), pela participação na conceção e execução do Monumento aos Mortos da Grande Guerra."
                 },
             ]
         }
@@ -163,7 +163,7 @@ const pt = {
 
 const en = {
     header: {
-        name: "Cemetery of Lumiar",
+        name: "Lumiar Cemetery",
         image: "https://i.ibb.co/5sDYqx1/img-20210223-135750-largejpg.jpg",
         imageLabel: "Graveyard Entrance",
         latitude: 38.77317551996132,
@@ -300,22 +300,22 @@ const en = {
             ],
             optionalCheckpoints: [
                 {
-                    title: 'Department of Lumiar Cemetery',
+                    title: "Department of Lumiar Cemetery",
                     latitude: 38.77325503481018,
                     longitude: -9.165028816578525,
-                    description: ''
+                    description: ""
                 },
                 {
-                    title: 'Waiting room at Lumiar Cemetery',
+                    title: "Waiting room at Lumiar Cemetery",
                     latitude: 38.773130088,
                     longitude: -9.1650193335,
-                    description: ''
+                    description: ""
                 },
                 {
-                    title: 'Maximiano Alves',
+                    title: "Maximiano Alves",
                     latitude: 38.77308750427511,
                     longitude: -9.166512401622008,
-                    description: 'Portuguese sculptor, completed the Sculpture Course at the Lisbon School of Fine Arts, in 1911, having been a student of the sculptor Simões de Almeida and the painters Luciano Freire and Ernesto Condaxle. He was awarded the rank of Officer of the Military Order of Santo Iago da Espada (May 23, 1932), for his participation in the design and execution of the Monument to the Dead of the Great War.'
+                    description: "Portuguese sculptor, completed the Sculpture Course at the Lisbon School of Fine Arts, in 1911, having been a student of the sculptor Simões de Almeida and the painters Luciano Freire and Ernesto Condaxle. He was awarded the rank of Officer of the Military Order of Santo Iago da Espada (May 23, 1932), for his participation in the design and execution of the Monument to the Dead of the Great War."
                 },
             ]
         }
@@ -323,6 +323,6 @@ const en = {
 }
 
 
-const cemiterioDeLumiar = locale === 'pt-PT' ? pt : en
+const cemiterioDeLumiar = locale === "pt-PT" ? pt : en
 
 export { cemiterioDeLumiar }

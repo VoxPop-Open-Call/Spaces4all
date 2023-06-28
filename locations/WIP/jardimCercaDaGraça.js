@@ -1,4 +1,4 @@
-import { locale } from '../../global'
+import { locale } from "../../global"
 
 const pt = {
     header: {
@@ -38,30 +38,66 @@ const pt = {
         {
             name: "Para Todos",
             duration: "1h",
-            checkpoints: [
+            checkpoints: [, 38.7168603
                 {
                     title: "Início",
-                    latitude: -9.154292265268559,
-                    longitude: 38.730792420941945,
+                    latitude: ,
+                    longitude:,
                     description: "Ponto de partida"
                 },
                 {
+                    title: "Monumento não identificado",
+                    latitude: 38.7168603,
+                    longitude: -9.1322511,
+                    description: "Instalação artística de um pássaro, possivelmente um Corvo."
+                },
+                {
                     title: "Fim",
-                    latitude: -9.154292265268559,
-                    longitude: 38.730792420941945,
+                    latitude: ,
+                    longitude: ,
                     description: ""
                 }
             ]
             ,
             corners: [
-                { direction: '', latitude: 38.730792420941945, longitude: -9.154292265268559 },
+                { direction: "", latitude: 38.730792420941945, longitude: -9.154292265268559 },
             ],
             optionalCheckpoints: [
                 {
-                    title: '',
-                    latitude: -9.154292265268559,
-                    longitude: 38.730792420941945,
-                    description: ''
+                    title: "Esplanada Café “Quiosque do Jardim da Cerca da Graça”",
+                    latitude: 38.7178585,
+                    longitude: -9.1321304,
+                    description: ""
+                },
+                {
+                    title: "Esplanada Café “Café da Graça”",
+                    latitude: 38.7165715,
+                    longitude: -9.1315243,
+                    description: ""
+                },
+                {
+                    title: "Miradouro Sophia de Mello Breyner Andersen",
+                    latitude: 38.7164040,
+                    longitude: -9.1314867,
+                    description: "Localizado junto à Igreja e antigo Convento da Graça, é um espaço calcetado, que oferece ao transeunte a sombra de alguns pinheiros-mansos e alguns bancos, onde é possível descansar enquanto nos deleitamos com um lindíssimo panorama sobre a cidade de Lisboa e a foz do Rio Tejo."
+                },
+                {
+                    title: "Corredor com bancos e Miradouro",
+                    latitude: 38.7178773,
+                    longitude: -9.1317952,
+                    description: ""
+                },
+                {
+                    title: "Pomar",
+                    latitude: 38.7174546,
+                    longitude: -9.1325730,
+                    description: ""
+                },
+                {
+                    title: "Parque Canino",
+                    latitude: 38.7176178,
+                    longitude: -9.1326883,
+                    description: ""
                 },
             ]
         }
@@ -71,6 +107,6 @@ const pt = {
 const en = {}
 
 
-const jardimCercaDaGraça = locale === 'pt-PT' ? pt : pt
+const jardimCercaDaGraça = locale === "pt-PT" ? pt : pt
 
 export { jardimCercaDaGraça }
