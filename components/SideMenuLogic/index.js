@@ -44,7 +44,7 @@ export default function SideMenuLogic() {
 
                 <View>
                     <TouchableWithoutFeedback onPress={handleClick} disabled={isAnimating}>
-                        <Animated.View style={{ opacity: animationValue, zIndex: 1 }}>
+                        <Animated.View>
                             <SideMenuBackdrop />
                         </Animated.View>
                     </TouchableWithoutFeedback>

@@ -3,13 +3,12 @@ import { Alert } from "react-native";
 import { Container, Map, Checkpoint, Path, Header, Distance } from "./styledTrackScreen";
 import MapViewDirections from "react-native-maps-directions";
 import { LocationContext } from '../../Context/Location';
-import { color } from "../../global";
+import { color, localeTexts } from "../../global";
 import { REACT_APP_API_KEY } from '@env';
 import { Icon } from "@rneui/base";
 import InfoBar from "../InfoBar";
 import { TTSButton } from "../TTSButton";
-
-// On deploy steps on https://docs.expo.dev/versions/latest/sdk/map-view/ must be taken
+import { PROVIDER_GOOGLE } from "react-native-maps"
 
 
 function getDistance(origin, destination) {
@@ -36,16 +35,16 @@ export default function TrackScreen({ navigation, route }) {
                 e.preventDefault();
                 // Prompt the user before leaving the screen
                 Alert.alert(
-                    'Tem certeza?',
-                    'Caso saia agora terá de recomeçar o percurso do início.',
+                    localeTexts['sure'],
+                    localeTexts['leaving'],
                     [
-                        { text: "Cancelar", style: 'cancel', onPress: () => { } },
+                        { text: localeTexts['cancel'], style: 'cancel', onPress: () => { } },
                         {
-                            text: 'Sair',
+                            text: localeTexts['exit'],
                             style: 'destructive',
                             // If the user confirmed, then we dispatch the action we blocked earlier
                             // This will continue the action that had triggered the removal of the screen
-                            onPress: () => navigation.dispatch(e.data.action),
+                            onPress: () => navigation.navigate('TrackEndScreen'),
                         },
                     ]
                 );
@@ -61,48 +60,40 @@ export default function TrackScreen({ navigation, route }) {
     const [region, setRegion] = useState({
         latitude: checkpoints[0].latitude,
         longitude: checkpoints[0].longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitudeDelta: 0,
+        longitudeDelta: 0.0121,
     });
-    const [userLocation, setUserLocation] = useState(locationContext.userLocation);
+    const [userLocation, setUserLocation] = useState(locationContext.userLocation.coords);
     const [distance, setDistance] = useState(0);
     const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
     const [currentCorner, setCurrentCorner] = useState(0);
 
-    // attempt to set initial gps location
-    useEffect(() => {
-
-        locationContext.getLocation();
-        if (locationContext.errorMsg !== null) {
-            navigation.navigate('TrackEndScreen')       
-        }
-        setUserLocation(locationContext.userLocation.coords);
-    }, []);
-
     // detect proximity to current checkpoint 
     useEffect(() => {
-        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 35) {
-            // Checkpoint reached
-            if (checkpoints.length === currentCheckpoint + 1) {
-                // It was the last checkpoint, end track
-                // TODO: Track completion screen
-
-                navigation.navigate('TrackEndScreen')
-
-                return;
-            }
-            // More checkpoints ahead, change text,
+        if (getDistance(userLocation, checkpoints[currentCheckpoint]) < 15 && checkpoints.length !== currentCheckpoint + 1) {
             setCurrentCheckpoint(currentCheckpoint + 1);
         }
     }, [distance]);
 
+    useEffect(() => {
+        console.log(corners[currentCorner])
+    }, [currentCorner]);
+
+
     // detect proximity to current corner 
     useEffect(() => {
-        if (currentCheckpoint === 0 || currentCorner.length === currentCorner + 1) { // Checks if the course has begun or is near the end
+        // Checks if the course has begun or is near the end
+
+        if (currentCheckpoint === 0) {
             return;
         }
+        if (corners.length === currentCorner + 1) {
+            navigation.navigate('TrackEndScreen')
+            return;
+        }
+
         let currentDistance = getDistance(userLocation, corners[currentCorner + 1]); // Checks distance until the next corner
-        if (currentDistance < 25) {
+        if (currentDistance < 10) {
             setCurrentCorner(currentCorner + 1); // corner reached
         }
         if (currentDistance > 75) {  // corner too far, checks for the nearest corner
@@ -123,8 +114,23 @@ export default function TrackScreen({ navigation, route }) {
         }
     }, [distance]);
 
+    //turn off location updater 
+
+    useEffect(() => {
+        if (locationContext.updateLocation) {
+            locationContext.toggleLocationUpdate();
+        }
+    }, []);
+
+    function animateToRegion() {
+        this.map.animateToRegion(region, 500);
+    }
+
     return (
-        <Container>
+        <Container
+            accessible={false}
+            accessibilityRole="none"
+        >
 
             <Header style={{
                 shadowColor: "#000",
@@ -134,38 +140,55 @@ export default function TrackScreen({ navigation, route }) {
                 },
                 shadowOpacity: 0.25,
                 shadowRadius: 3.84,
-
                 elevation: 5,
-            }}>
-                <Icon type="Io" name="close" size={48} color={color.onPrimaryContainer} onPress={() => navigation.goBack()} />
-                <Distance>
+            }}
+                accessible={true}
+            >
+                <Icon accessibilityRole="button" accessibilityHint={localeTexts["ariaButtonClose"]} type="Io" name="close" size={48} color={color.onPrimaryContainer} onPress={() => navigation.goBack()} />
+                <Distance accessibilityRole="none" accessibilityHint={localeTexts["ariaLabelDistance"]}>
                     {distance >= 1000 ? (distance / 1000) + ' km' : Math.round(distance) + ' m'}
                 </Distance>
             </Header>
 
             <Map
-                followsUserLocation
+                provider={PROVIDER_GOOGLE}
+                ref={ref => this.map = ref}
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
+                showsUserLocation={true}
+                followsUserLocation={true}
+                showsMyLocationButton={false}
                 initialRegion={region}
-                showsUserLocation
-                minZoomLevel={16.5}
+                minZoomLevel={18.5}
                 maxZoomLevel={20}
                 loadingEnabled={true}
                 onUserLocationChange={
                     (newLocation) => {
-                        if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 15) {
-                            setUserLocation(newLocation.nativeEvent.coordinate); // Avoiding constant location updates with a movement distance threshold 
+                        if (getDistance(userLocation, newLocation.nativeEvent.coordinate) > 2) {
+                            // Avoiding constant location updates with a movement distance threshold 
+                            setRegion(
+                                {
+                                    ...region,
+                                    latitude: newLocation.nativeEvent.coordinate.latitude,
+                                    longitude: newLocation.nativeEvent.coordinate.longitude
+                                }
+                            )
+                            setUserLocation(newLocation.nativeEvent.coordinate);
+                            animateToRegion();
                         }
                         if (currentCheckpoint !== 0) {
                             setDistance(getDistance(userLocation, checkpoints[currentCheckpoint])); // Setting distance if the user is inside the track
                         }
                     }
                 }
+
             >
                 <Checkpoint
                     coordinate={checkpoints[currentCheckpoint]}
                     title={checkpoints[currentCheckpoint].title}
                     description={checkpoints[currentCheckpoint].description}
                     opacity={0.7}
+                    zIndex={2}
                 />
 
                 {optionalCheckpoints.map((checkpoint, i) => (
@@ -176,6 +199,7 @@ export default function TrackScreen({ navigation, route }) {
                         description={checkpoint.description}
                         pinColor={'yellow'}
                         opacity={0.7}
+                        zIndex={3}
                     />
                 ))
                 }
@@ -185,27 +209,37 @@ export default function TrackScreen({ navigation, route }) {
                         destination={checkpoints[currentCheckpoint]}
                         apikey={REACT_APP_API_KEY}
                         mode={'WALKING'}
-                        strokeWidth={3}
+                        strokeWidth={4}
                         strokeColor={color.primary}
                         precision="high"
                         onReady={(ready) => {
                             setDistance(ready.distance * 1000); // Setting distance if the user is outside the track
                         }}
                         resetOnChange={false}
+                        zIndex={3}
                     />
                     :
+                    <Path // Using manual directions, it only displays half the track to avoid confusion
 
-                    <Path // Using manual directions
-
-                        coordinates={corners.slice(currentCorner)}
-                        strokeWidth={3}
+                        coordinates={corners.slice(currentCorner).length > Math.floor(corners.length / 2) ? corners.slice(currentCorner, currentCorner + Math.floor(corners.length / 2)) : corners.slice(currentCorner)}
+                        strokeWidth={4}
                         strokeColor={color.primary}
+                        zIndex={2}
                     />
+
                 }
+                {/* <Path // path background
+
+                    coordinates={corners}
+                    strokeWidth={8}
+                    strokeColor={color.background}
+                    opacity={0.2}
+                    zIndex={1}
+                /> */}
             </Map>
             <TTSButton />
             <InfoBar
-                checkpoint={checkpoints[currentCheckpoint]}
+                checkpoint={checkpoints[currentCheckpoint === 0 ? 0 : currentCheckpoint - 1]} // Sends data from the previous checkpoint
                 trackStarted={currentCheckpoint !== 0}
                 corner={corners[currentCorner]}
             />

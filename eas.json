@@ -1,0 +1,29 @@
+{
+  "cli": {
+    "version": ">= 3.13.3"
+  },
+  "build": {
+    "development": {
+      "android": {
+        "buildType": "apk"
+      },
+      "developmentClient": true,
+      "env": {
+        "REACT_APP_API_KEY": "INSERT_API_KEY_HERE"
+      }
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+      "distribution": "internal",
+      "env": {
+        "REACT_APP_API_KEY": "INSERT_API_KEY_HERE"
+      }
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+  }
+}
