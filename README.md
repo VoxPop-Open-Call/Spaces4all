@@ -1,4 +1,4 @@
-# spaces4all
+# Spaces4all
 Inclusive tourist maps of Lisbon. This project is co-financed by the European Regional Development Fund through the Urban Innovative Actions Initiative.
 ## About
 
