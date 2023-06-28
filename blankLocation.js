@@ -19,13 +19,13 @@ const pt = {
         {
             title: "Pontos de Interesse",
             data: [
-
+                [""]
             ]
         },
         {
             title: "Locais de utilidade pública",
             data: [
-
+                [""]
             ]
         },
     ],
@@ -36,26 +36,26 @@ const pt = {
             checkpoints: [
                 {
                     title: "Início",
-                    latitude: -9.154292265268559,
-                    longitude: 38.730792420941945,
-                    description: "Ponto de partida"
+                    latitude: ,
+                    longitude: ,
+                    description: ""
                 },
                 {
                     title: "Fim",
-                    latitude: -9.154292265268559,
-                    longitude: 38.730792420941945,
+                    latitude:,
+                    longitude: ,
                     description: ""
                 }
             ]
             ,
             corners: [
-                { direction: '', latitude: 38.730792420941945, longitude: -9.154292265268559 },
+                { direction: '', latitude: , longitude:  },
             ],
             optionalCheckpoints: [
                 {
                     title: '',
-                    latitude: -9.154292265268559,
-                    longitude: 38.730792420941945,
+                    latitude: ,
+                    longitude: ,
                     description: ''
                 },
             ]
@@ -63,9 +63,11 @@ const pt = {
     ]
 }
 
-const en = {}
+const en = {
+    //tranlated data with the same format    
+}
 
 
-const parqueEduardoVII = locale === 'pt-PT' ? pt : en
+const locationName = locale === 'pt-PT' ? pt : en
 
-export { parqueEduardoVII }
+export { locationName }
