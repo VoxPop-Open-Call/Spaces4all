@@ -6,7 +6,7 @@ import { cemiterioDeBenfica } from './locations/cemiterioDeBenfica.js'
 import { cemiterioDeLumiar } from './locations/cemiterioDeLumiar.js'
 import { cemiterioDosPrazeres } from './locations/cemiterioDosPrazeres.js'
 import { jardimAmaliaRodrigues } from './locations/jardimAmaliaRodrigues.js'
-// import { jardimCercaDaGraça } from './locations/WIP/jardimCercaDaGraça.js'
+import { jardimCercaDaGraça } from './locations/jardimCercaDaGraça.js'
 import { jardimDaEstrela } from './locations/jardimDaEstrela.js'
 import { jardimDasAmoreiras } from './locations/jardimDasAmoreiras.js'
 import { jardimDaTorreDe } from './locations/jardimDaTorreDe.js'
@@ -28,7 +28,7 @@ export const data = [
     cemiterioDeLumiar,
     cemiterioDosPrazeres,
     jardimAmaliaRodrigues,
-    // jardimCercaDaGraça,
+    jardimCercaDaGraça,
     jardimDaEstrela,
     jardimDasAmoreiras,
     jardimDaTorreDe,

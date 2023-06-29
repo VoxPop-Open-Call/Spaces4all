@@ -146,7 +146,7 @@ const pt = {
 
 const en = {
     header: {
-        name: "Parque dos Moinhos de Santana",
+        name: "Moinhos de Santana park",
         image: "https://i.ibb.co/0r1jLk7/parque-Recreativo-Dos-Moinhos-min.jpg",
         imageLabel: "Photo from inside the park",
         latitude: 38.70937186542055,
